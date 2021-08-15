@@ -1,0 +1,12 @@
+prevPage:
+  other: Prev
+nextPage:
+  other: Next
+wordCount:
+  one: "{{ .Count }} word"
+  other: "{{ .Count }} words"
+readingTime:
+  one: "{{ .Count }} min read"
+  other: "{{ .Count }} mins read"
+readMore:
+  other: "Read more..."

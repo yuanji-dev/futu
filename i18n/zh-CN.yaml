@@ -1,0 +1,12 @@
+prevPage:
+  other: 上一页
+nextPage:
+  other: 下一页
+wordCount:
+  one: "约 {{ .Count }} 字"
+  other: "约 {{ .Count }} 字"
+readingTime:
+  one: "预计阅读 {{ .Count }} 分钟"
+  other: "预计阅读 {{ .Count }} 分钟"
+readMore:
+  other: "阅读更多"

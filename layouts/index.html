@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <section class="col-10" id="posts">
+    {{- $paginator := .Paginate (where (where
+      .Site.RegularPages "Type" "post") ".Params.hiddenfromhomepage" "!=" true)
+    }}
+    {{- range $paginator.Pages -}}
+      {{ .Render "summary" }}
+      <hr />
+    {{ end -}}
+  </section>
+  <!-- pagination -->
+  <nav class="pagination col-10">
+    {{ with $paginator.Prev -}}
+      <a class="prev me-auto text-decoration-none" href="{{ .URL }}">
+        <i class="bi-arrow-left-circle"></i>
+        <span class="prev-text ">{{ T "prevPage" }}</span>
+      </a>
+    {{- end }}
+    {{ with $paginator.Next -}}
+      <a class="next ms-auto text-decoration-none" href="{{ .URL }}">
+        <span class="next-text ">{{ T "nextPage" }}</span>
+        <i class="bi-arrow-right-circle"></i>
+      </a>
+    {{- end }}
+  </nav>
+{{ end }}
