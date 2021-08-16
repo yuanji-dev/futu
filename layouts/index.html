@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <section class="col-10" id="posts">
+  <section class="col-lg" id="posts">
     {{- $paginator := .Paginate (where (where
       .Site.RegularPages "Type" "post") ".Params.hiddenfromhomepage" "!=" true)
     }}
@@ -9,7 +9,7 @@
     {{ end -}}
   </section>
   <!-- pagination -->
-  <nav class="pagination col-10">
+  <nav class="pagination col-lg">
     {{ with $paginator.Prev -}}
       <a class="prev me-auto text-decoration-none" href="{{ .URL }}">
         <i class="bi-arrow-left-circle"></i>
