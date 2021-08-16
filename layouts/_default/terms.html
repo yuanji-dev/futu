@@ -1,0 +1,30 @@
+{{- define "title" }}{{ T .Data.Plural }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "main" -}}
+  {{ $name := .Data.Plural -}}
+  {{ $terms := .Data.Terms.ByCount -}}
+  {{ $length := len $terms -}}
+  <div class="terms">
+    <div class="terms-title">
+      {{ if eq $length 0 -}}
+        {{ T "zeroTagCounter" }}
+      {{- else -}}
+        {{ T "tagCounter" $length }}
+      {{- end }}
+    </div>
+    <div class="terms-tags">
+      {{- range $key, $value := $terms }}
+        {{ $termURL := print ($name | relLangURL) "/" ($value.Term | urlize) }}
+        {{ if $.Site.Params.uglyURLs }}
+          {{ $termURL = print $termURL ".html" }}
+        {{ else }}
+          {{ $termURL = print $termURL "/" }}
+        {{ end }}
+        <a class="terms-link" href="{{ $termURL }}">
+          {{ $value.Term }}
+          <span class="terms-count">{{ len $value.Pages }}</span>
+        </a>
+      {{ end -}}
+    </div>
+  </div>
+{{- end }}

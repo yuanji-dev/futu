@@ -1,5 +1,6 @@
+{{ define "title" -}}{{ .Title }} - {{ .Site.Title }}{{- end }}
 {{ define "main" -}}
-<article class="post">
-  <div class="post-content">{{ .Content }}</div>
-</article>
+  <article class="post">
+    <div class="post-content">{{ .Content }}</div>
+  </article>
 {{- end }}

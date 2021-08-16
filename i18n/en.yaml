@@ -10,3 +10,7 @@ readingTime:
   other: "{{ .Count }} mins read"
 readMore:
   other: "Read more..."
+archive:
+  other: "Archive"
+tags:
+  other: "Tags"

@@ -10,3 +10,7 @@ readingTime:
   other: "预计阅读 {{ .Count }} 分钟"
 readMore:
   other: "阅读更多"
+archive:
+  other: "归档"
+tags:
+  other: "标签"
