@@ -1,20 +1,22 @@
 <div class="container">
   <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <ul class="nav justify-content-center border-bottom pb-1 mb-3">
+      {{ range $key, $value := .Site.Params.social }}
+        {{ $name := slicestr $key 2 }}
+        <li class="nav-item">
+          <a href="{{ $value }}" class="nav-link px-1">
+            <svg class="iconfont" aria-hidden="true">
+              <use xlink:href="#icon-{{ $name }}"></use>
+            </svg>
+          </a>
+        </li>
+      {{ end }}
       <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">豆瓣</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">电报</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">邮件</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">Twitter</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">RSS</a>
+        <a href="{{ .Site.RSSLink }}" class="nav-link px-1">
+          <svg class="iconfont" aria-hidden="true">
+            <use xlink:href="#icon-rss"></use>
+          </svg>
+        </a>
       </li>
     </ul>
     <p class="text-center text-muted">

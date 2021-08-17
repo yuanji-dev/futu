@@ -11,14 +11,14 @@
   <!-- pagination -->
   <nav class="pagination col-lg">
     {{ with $paginator.Prev -}}
-      <a class="prev me-auto text-decoration-none" href="{{ .URL }}">
+      <a class="me-auto text-decoration-none" href="{{ .URL }}">
         <i class="bi-arrow-left-circle"></i>
-        <span class="prev-text ">{{ T "prevPage" }}</span>
+        {{ T "prevPage" }}
       </a>
     {{- end }}
     {{ with $paginator.Next -}}
-      <a class="next ms-auto text-decoration-none" href="{{ .URL }}">
-        <span class="next-text ">{{ T "nextPage" }}</span>
+      <a class="ms-auto text-decoration-none" href="{{ .URL }}">
+        {{ T "nextPage" }}
         <i class="bi-arrow-right-circle"></i>
       </a>
     {{- end }}
