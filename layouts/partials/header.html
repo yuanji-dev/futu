@@ -11,9 +11,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+        {{ $currentPage := . }}
         {{- range .Site.Menus.main -}}
           <li class="nav-item">
-            <a class="nav-link active" href="{{ .URL | safeURL }}"
+            <a
+              class="nav-link {{ if eq .URL $currentPage.RelPermalink -}}
+                active
+              {{- else }}
+              {{ end }}"
+              href="{{ .URL | safeURL }}"
               >{{ .Name }}</a
             >
           </li>
