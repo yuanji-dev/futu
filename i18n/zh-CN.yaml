@@ -17,3 +17,8 @@ tags:
 archiveCounter:
   one: "共计 {{ .Count }} 篇文章"
   other: "共计 {{ .Count }} 篇文章"
+zeroTagCounter:
+  other: "暂无标签"
+tagCounter:
+  one: "共计 {{ .Count }} 个标签"
+  other: "共计 {{ .Count }} 个标签"

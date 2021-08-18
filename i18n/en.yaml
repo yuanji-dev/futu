@@ -17,3 +17,8 @@ tags:
 archiveCounter:
   one: "{{ .Count }} Post In Total"
   other: "{{ .Count }} Posts In Total"
+zeroTagCounter:
+  other: "No Tags"
+tagCounter:
+  one: "{{ .Count }} Tag In Total"
+  other: "{{ .Count }} Tags In Total"

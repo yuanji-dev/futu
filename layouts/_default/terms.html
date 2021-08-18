@@ -4,15 +4,15 @@
   {{ $name := .Data.Plural -}}
   {{ $terms := .Data.Terms.ByCount -}}
   {{ $length := len $terms -}}
-  <div class="terms">
-    <div class="terms-title">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 text-center mb-2">
       {{ if eq $length 0 -}}
         {{ i18n "zeroTagCounter" }}
       {{- else -}}
         {{ i18n "tagCounter" $length }}
       {{- end }}
     </div>
-    <div class="terms-tags">
+    <div class="col-lg-8">
       {{- range $key, $value := $terms }}
         {{ $termURL := print ($name | relLangURL) "/" ($value.Term | urlize) }}
         {{ if $.Site.Params.uglyURLs }}
@@ -20,9 +20,11 @@
         {{ else }}
           {{ $termURL = print $termURL "/" }}
         {{ end }}
-        <a class="terms-link" href="{{ $termURL }}">
+        <a class="btn btn-light m-1" href="{{ $termURL }}">
           {{ $value.Term }}
-          <span class="terms-count">{{ len $value.Pages }}</span>
+          <span class="badge bg-dark bg-opacity-75"
+            >{{ len $value.Pages }}</span
+          >
         </a>
       {{ end -}}
     </div>

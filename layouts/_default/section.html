@@ -6,7 +6,7 @@
     }}
     <section class="col-lg-8">
       {{- if and (not $paginator.HasPrev) .Site.Params.showArchiveCount }}
-        <div class="text-center">
+        <div class="text-center mb-2">
           {{ i18n "archiveCounter" (len .Data.Pages) }}
         </div>
       {{- end -}}
@@ -20,8 +20,8 @@
         {{- if or (eq $index 0) ( ne ($lastElement.Date.Format
           "2006") $thisYear )
         }}
-          <div>
-            <h2>{{ $thisYear }}</h2>
+          <div class="fs-4">
+            {{ $thisYear }}
           </div>
         {{- end }}
         <div>
