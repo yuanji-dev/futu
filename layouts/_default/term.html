@@ -1,45 +1,37 @@
 {{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
 {{- define "main" }}
-  {{- $paginator := .Paginate .Data.Pages .Site.Params.archivePaginate -}}
-  <section id="archive" class="archive">
-    {{ if not $paginator.HasPrev -}}
-      {{ if eq .Data.Plural "tags" -}}
-        <div class="archive-title tag">
-          <h2 class="archive-name">{{ .Title }}</h2>
-        </div>
-      {{- else if eq .Data.Plural "categories" -}}
-        <div class="archive-title category">
-          <h2 class="archive-name">{{ .Title }}</h2>
-        </div>
-      {{- end }}
-    {{- end }}
-
-    {{ range $paginator.Pages -}}
-      <div class="archive-post">
-        <span class="archive-post-time">
-          {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
-        </span>
-        <span class="archive-post-title">
-          <a href="{{ .RelPermalink }}" class="archive-post-link">
+  <div class="row justify-content-around">
+    {{- $paginator := .Paginate .Data.Pages .Site.Params.archivePaginate -}}
+    <section class="col-lg-8">
+      <div class="text-center mb-2">
+        {{ i18n "archiveCounter" (len .Data.Pages) }}
+      </div>
+      <div class="fs-4">{{ i18n .Data.Plural }}: {{ .Title }}</div>
+      {{ range $paginator.Pages -}}
+        <div>
+          <span>
+            {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+          </span>
+          <a href="{{ .RelPermalink }}" class="text-decoration-none">
             {{ .Title }}
           </a>
-        </span>
-      </div>
-    {{- end }}
-  </section>
-  <!-- pagination -->
-  <nav class="pagination">
-    {{ with $paginator.Prev -}}
-      <a class="prev" href="{{ .URL }}">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">{{ i18n "prevPage" }}</span>
-      </a>
-    {{- end }}
-    {{ with $paginator.Next -}}
-      <a class="next" href="{{ .URL }}">
-        <span class="next-text">{{ i18n "nextPage" }}</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    {{- end }}
-  </nav>
+        </div>
+      {{- end }}
+    </section>
+    <!-- pagination -->
+    <nav class="col-lg-8 border-top mt-3 pt-3">
+      {{ with $paginator.Prev -}}
+        <a class="float-start text-decoration-none" href="{{ .URL }}">
+          <i class="bi-arrow-left-circle"></i>
+          {{ i18n "prevPage" }}
+        </a>
+      {{- end }}
+      {{ with $paginator.Next -}}
+        <a class="float-end text-decoration-none" href="{{ .URL }}">
+          {{ i18n "nextPage" }}
+          <i class="bi-arrow-right-circle"></i>
+        </a>
+      {{- end }}
+    </nav>
+  </div>
 {{- end }}

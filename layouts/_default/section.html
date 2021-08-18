@@ -5,11 +5,9 @@
       .Site.Params.archivePaginate
     }}
     <section class="col-lg-8">
-      {{- if and (not $paginator.HasPrev) .Site.Params.showArchiveCount }}
-        <div class="text-center mb-2">
-          {{ i18n "archiveCounter" (len .Data.Pages) }}
-        </div>
-      {{- end -}}
+      <div class="text-center mb-2">
+        {{ i18n "archiveCounter" (len .Data.Pages) }}
+      </div>
       {{- range $index, $element := $paginator.Pages -}}
         {{- $thisYear
           := $element.Date.Format "2006"
