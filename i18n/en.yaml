@@ -14,3 +14,6 @@ archive:
   other: "Archive"
 tags:
   other: "Tags"
+archiveCounter:
+  one: "{{ .Count }} Post In Total"
+  other: "{{ .Count }} Posts In Total"
