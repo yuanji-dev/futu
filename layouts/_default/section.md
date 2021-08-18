@@ -1,6 +1,6 @@
 # {{ .Site.Title }}
 
-{{ T "archiveCounter" (len .Data.Pages) }}
+{{ i18n "archiveCounter" (len .Data.Pages) }}
 
 {{- $posts := .Data.Pages.ByDate.Reverse }}
 {{- range $index, $post := $posts }}

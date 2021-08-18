@@ -32,12 +32,12 @@
     {{ with $paginator.Prev -}}
       <a class="prev" href="{{ .URL }}">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">{{ T "prevPage" }}</span>
+        <span class="prev-text">{{ i18n "prevPage" }}</span>
       </a>
     {{- end }}
     {{ with $paginator.Next -}}
       <a class="next" href="{{ .URL }}">
-        <span class="next-text">{{ T "nextPage" }}</span>
+        <span class="next-text">{{ i18n "nextPage" }}</span>
         <i class="iconfont icon-right"></i>
       </a>
     {{- end }}

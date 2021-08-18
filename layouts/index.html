@@ -14,12 +14,12 @@
       {{ with $paginator.Prev -}}
         <a class="float-start text-decoration-none" href="{{ .URL }}">
           <i class="bi-arrow-left-circle"></i>
-          {{ T "prevPage" }}
+          {{ i18n "prevPage" }}
         </a>
       {{- end }}
       {{ with $paginator.Next -}}
         <a class="float-end text-decoration-none" href="{{ .URL }}">
-          {{ T "nextPage" }}
+          {{ i18n "nextPage" }}
           <i class="bi-arrow-right-circle"></i>
         </a>
       {{- end }}
