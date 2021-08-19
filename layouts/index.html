@@ -1,28 +1,30 @@
 {{ define "main" }}
   <div class="row justify-content-lg-around">
-    <section class="col-lg-8" id="posts">
-      {{- $paginator := .Paginate (where (where
-        .Site.RegularPages "Type" "post") ".Params.hiddenfromhomepage" "!=" true)
-      }}
-      {{- range $paginator.Pages -}}
-        {{ .Render "summary" }}
-        <hr />
-      {{ end -}}
-    </section>
-    <!-- pagination -->
-    <nav class="col-lg-8">
-      {{ with $paginator.Prev -}}
-        <a class="float-start text-decoration-none" href="{{ .URL }}">
-          <i class="bi-arrow-left-circle"></i>
-          {{ i18n "prevPage" }}
-        </a>
-      {{- end }}
-      {{ with $paginator.Next -}}
-        <a class="float-end text-decoration-none" href="{{ .URL }}">
-          {{ i18n "nextPage" }}
-          <i class="bi-arrow-right-circle"></i>
-        </a>
-      {{- end }}
-    </nav>
+    <div class="col-lg-8">
+      <section class="row">
+        {{- $paginator := .Paginate (where (where
+          .Site.RegularPages "Type" "post") ".Params.hiddenfromhomepage" "!=" true)
+        }}
+        {{- range $paginator.Pages -}}
+          {{ .Render "summary" }}
+          <hr class="my-3 text-secondary" />
+        {{ end -}}
+      </section>
+      <!-- pagination -->
+      <nav>
+        {{ with $paginator.Prev -}}
+          <a class="float-start text-decoration-none" href="{{ .URL }}">
+            <i class="bi-arrow-left-circle"></i>
+            {{ i18n "prevPage" }}
+          </a>
+        {{- end }}
+        {{ with $paginator.Next -}}
+          <a class="float-end text-decoration-none" href="{{ .URL }}">
+            {{ i18n "nextPage" }}
+            <i class="bi-arrow-right-circle"></i>
+          </a>
+        {{- end }}
+      </nav>
+    </div>
   </div>
 {{ end }}
