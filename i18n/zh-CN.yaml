@@ -22,3 +22,7 @@ zeroTagCounter:
 tagCounter:
   one: "共计 {{ .Count }} 个标签"
   other: "共计 {{ .Count }} 个标签"
+powered:
+  other: "由 %s 强力驱动"
+theme:
+  other: "主题"

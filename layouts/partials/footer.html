@@ -19,7 +19,17 @@
         </a>
       </li>
     </ul>
-    <p class="text-center text-muted">
+    <p class="text-center text-muted mb-0">
+      <span>
+        {{ (printf (T "powered") (printf `<a class="mark text-decoration-none" href="https://gohugo.io">Hugo %s</a>` .Site.Hugo.Version)) | safeHTML }}
+      </span>
+      <span>|</span>
+      <span>
+        {{ T "theme" }} -
+        <a class="text-decoration-none" href="/">BS5</a>
+      </span>
+    </p>
+    <p class="user-select-all text-center text-muted">
       Copyright © 2016-2021 Yuanji All Rights Resarved.
     </p>
   </footer>

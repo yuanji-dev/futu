@@ -22,3 +22,7 @@ zeroTagCounter:
 tagCounter:
   one: "{{ .Count }} Tag In Total"
   other: "{{ .Count }} Tags In Total"
+powered:
+  other: "Powered by %s"
+theme:
+  other: "Theme"
