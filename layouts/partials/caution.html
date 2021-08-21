@@ -1,0 +1,21 @@
+  {{- $daysAgo := div (sub now.Unix .Lastmod.Unix) 86400 }}
+  {{- $hintThreshold := .Site.Params.outdatedInfoWarning.hint | default 30 }}
+  {{- $warnThreshold := .Site.Params.outdatedInfoWarning.warn | default 180 }}
+
+  {{- $updateTime := .Lastmod }}
+  {{- if .GitInfo }}
+    {{- if lt .GitInfo.AuthorDate.Unix .Lastmod.Unix }}
+      {{- $updateTime := .GitInfo.AuthorDate }}
+    {{- end }}
+  {{- end -}}
+
+  {{- if gt $daysAgo $hintThreshold }}
+    {{- if gt $daysAgo $warnThreshold }}
+    <div class="alert alert-warning">
+    {{- else }}
+    <div class="alert alert-primary">
+    {{- end }}
+      <strong>{{ i18n "caution" -}}</strong>
+      {{ i18n "cautionMessage" }}
+    </div>
+  {{- end -}}

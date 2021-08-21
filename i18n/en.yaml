@@ -26,3 +26,7 @@ powered:
   other: "Powered by %s"
 theme:
   other: "Theme"
+caution:
+  other: "Caution!"
+cautionMessage:
+  other: "This article may contain outdated content."

@@ -26,3 +26,7 @@ powered:
   other: "由 %s 强力驱动"
 theme:
   other: "主题"
+caution:
+  other: "请注意！"
+cautionMessage:
+  other: "文中内容可能已过时，请谨慎使用。"
