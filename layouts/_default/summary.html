@@ -1,11 +1,11 @@
 <article>
   <header>
-    <h1>
-      <a class="text-decoration-none text-dark" href="{{ .RelPermalink }}"
+    <h1 class="mb-0">
+      <a class="text-decoration-none" href="{{ .RelPermalink }}"
         >{{ .Title }}</a
       >
     </h1>
-    <div>
+    <div class="text-secondary mb-2">
       <span>
         {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
       </span>
