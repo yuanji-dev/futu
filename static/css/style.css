@@ -22,3 +22,11 @@ pre {
 .highlight {
   margin-bottom: 1rem;
 }
+
+.sticky-top {
+  top: var(--body-padding-top);
+}
+
+#TableOfContents a {
+  text-decoration: none;
+}

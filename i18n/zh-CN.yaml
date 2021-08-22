@@ -30,3 +30,5 @@ caution:
   other: "请注意！"
 cautionMessage:
   other: "文中内容可能已过时，请谨慎使用。"
+TOC:
+  other: "文章目录"
