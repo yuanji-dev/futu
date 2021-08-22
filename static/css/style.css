@@ -1,5 +1,11 @@
+:root {
+  --body-padding-top: 76px;
+}
+html {
+  scroll-padding: var(--body-padding-top) 0 0 0;
+}
 body {
-  padding-top: 76px;
+  padding-top: var(--body-padding-top);
 }
 .iconfont {
   width: 2rem;

@@ -28,5 +28,8 @@
       {{- partial "caution.html" . -}}
       <div>{{ .Content }}</div>
     </article>
+    <aside class="col-lg-2">
+      {{ .TableOfContents }}
+    </aside>
   </div>
 {{- end }}
