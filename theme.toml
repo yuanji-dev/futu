@@ -3,9 +3,9 @@
 
 name = "Futu"
 license = "MIT"
-licenselink = "https://github.com/masakichi/Futu/blob/master/LICENSE"
+licenselink = "https://github.com/masakichi/futu/blob/master/LICENSE"
 description = ""
-homepage = "https://github.com/masakichi/Futu"
+homepage = "https://github.com/masakichi/futu"
 tags = []
 features = []
 min_version = "0.86.0"
