@@ -6,10 +6,10 @@
   </head>
   <body>
     {{- partial "header.html" . -}}
-    <div class="container" id="main">
+    <main class="container">
       {{- block "main" . }}
       {{- end }}
-    </div>
+    </main>
     {{- partial "footer.html" . -}}
     {{- partial "script.html" . -}}
   </body>
