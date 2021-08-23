@@ -1,6 +1,6 @@
 {{- define "title" }}{{ i18n "archive" }} - {{ .Site.Title }}{{ end -}}
 {{- define "main" }}
-  <div class="row justify-content-around">
+  <div class="row justify-content-lg-center">
     {{- $paginator := .Paginate .Data.Pages.ByDate.Reverse
       .Site.Params.archivePaginate
     }}

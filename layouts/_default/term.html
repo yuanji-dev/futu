@@ -1,6 +1,6 @@
 {{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
 {{- define "main" }}
-  <div class="row justify-content-around">
+  <div class="row justify-content-lg-center">
     {{- $paginator := .Paginate .Data.Pages .Site.Params.archivePaginate -}}
     <section class="col-lg-8">
       <div class="text-center mb-2">
