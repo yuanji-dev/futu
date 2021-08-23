@@ -4,7 +4,12 @@
       {{ range $key, $value := .Site.Params.social }}
         {{ $name := slicestr $key 2 }}
         <li class="nav-item">
-          <a href="{{ $value }}" class="nav-link px-1">
+          <a
+            href="{{ $value }}"
+            target="_blank"
+            rel="noopener"
+            class="nav-link px-1"
+          >
             <svg class="iconfont" aria-hidden="true">
               <use xlink:href="#icon-{{ $name }}"></use>
             </svg>
@@ -26,7 +31,13 @@
       <span>|</span>
       <span>
         {{ i18n "theme" }} -
-        <a class="text-decoration-none" href="/">BS5</a>
+        <a
+          class="text-decoration-none"
+          target="_blank"
+          rel="noopener"
+          href="https://github.com/masakichi/Futu"
+          >Futu</a
+        >
       </span>
     </p>
     <p class="user-select-all text-center text-muted">

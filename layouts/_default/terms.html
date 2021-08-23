@@ -20,11 +20,9 @@
         {{ else }}
           {{ $termURL = print $termURL "/" }}
         {{ end }}
-        <a class="btn btn-light m-1" href="{{ $termURL }}">
+        <a class="btn btn-secondary m-1" href="{{ $termURL }}">
           {{ $value.Term }}
-          <span class="badge bg-dark bg-opacity-75"
-            >{{ len $value.Pages }}</span
-          >
+          <span class="badge rounded-pill bg-dark">{{ len $value.Pages }}</span>
         </a>
       {{ end -}}
     </div>
