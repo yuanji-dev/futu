@@ -6,7 +6,7 @@
 {{ template "_internal/schema.html" . }}
 {{ template "_internal/google_news.html" . }}
 {{ range .AlternativeOutputFormats -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}
 {{ end -}}
 <link
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
