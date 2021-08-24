@@ -1,0 +1,13 @@
+{{ define "title" }}404 Not Found - {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+  <div class="row justify-content-around">
+    <img
+      class="img-fluid w-auto my-3"
+      src="/img/404.jpeg"
+      alt="404 Not Found"
+    />
+    <p class="fs-3 text-center">
+      <a class="btn btn-outline-primary" href="{{ "/" | relURL }}">Go Home</a>
+    </p>
+  </div>
+{{ end }}

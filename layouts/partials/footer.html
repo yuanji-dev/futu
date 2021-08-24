@@ -1,5 +1,5 @@
 <div class="container">
-  <footer class="py-3 my-4">
+  <footer class="py-3 my-1">
     <ul class="nav justify-content-center border-bottom pb-1 mb-3">
       {{ range $key, $value := .Site.Params.social }}
         {{ $name := slicestr $key 2 }}
@@ -41,7 +41,7 @@
       </span>
     </p>
     <p class="user-select-all text-center text-muted">
-      Copyright © 2016-2021 Yuanji All Rights Resarved.
+      Copyright © 2016-{{ now.Format "2006" }} Yuanji All Rights Resarved.
     </p>
   </footer>
 </div>
