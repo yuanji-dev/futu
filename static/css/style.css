@@ -30,3 +30,19 @@ pre {
 #TableOfContents a {
   text-decoration: none;
 }
+
+article figure {
+  text-align: center;
+}
+
+article figure figcaption h4 {
+  font-size: 1rem;
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity));
+  margin-top: 0.5rem;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+}
