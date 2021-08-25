@@ -19,16 +19,17 @@ pre {
   unicode-bidi: normal;
   margin-bottom: 0;
 }
-.highlight {
-  margin-bottom: 1rem;
-}
-
 .sticky-top {
   top: var(--body-padding-top);
 }
 
 #TableOfContents a {
   text-decoration: none;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
 }
 
 article figure {
@@ -42,7 +43,6 @@ article figure figcaption h4 {
   margin-top: 0.5rem;
 }
 
-article img {
-  max-width: 100%;
-  height: auto;
+article div.highlight {
+  margin-bottom: 1rem;
 }

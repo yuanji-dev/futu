@@ -1,0 +1,41 @@
+{{ if .IsNamedParams -}}
+
+  {{ if eq (.Get "details") "true" -}}
+    <details class="mb-3">
+      <summary class="alert alert-{{ $.Get 0 }} mb-0 rounded-0 ">
+        {{ .Get 1 }}
+      </summary>
+      <div class="border border-1 border-top-0 p-3">
+        {{ .Inner | markdownify }}
+      </div>
+    </details>
+  {{- else -}}
+    <div class="mb-3">
+      <p class="alert alert-{{ $.Get 0 }} mb-0 rounded-0">{{ .Get 1 }}</p>
+      <div class="border border-1 border-top-0 p-3">
+        {{ .Inner | markdownify }}
+      </div>
+    </div>
+  {{- end }}
+
+{{- else -}}
+
+  {{ if eq (.Get 2) "true" -}}
+    <details class="mb-3">
+      <summary class="alert alert-{{ $.Get 0 }} mb-0 rounded-0 ">
+        {{ .Get 1 }}
+      </summary>
+      <div class="border border-1 border-top-0 p-3">
+        {{ .Inner | markdownify }}
+      </div>
+    </details>
+  {{- else -}}
+    <div class="mb-3">
+      <p class="alert alert-{{ $.Get 0 }} mb-0 rounded-0">{{ .Get 1 }}</p>
+      <div class="border border-1 border-top-0 p-3">
+        {{ .Inner | markdownify }}
+      </div>
+    </div>
+  {{- end }}
+
+{{- end }}

@@ -22,7 +22,7 @@
         {{ end }}
         <a class="btn btn-secondary m-1" href="{{ $termURL }}">
           {{ $value.Term }}
-          <span class="badge rounded-pill bg-dark">{{ len $value.Pages }}</span>
+          <span class="badge rounded-pill bg-dark">{{ $value.Count }}</span>
         </a>
       {{ end -}}
     </div>
