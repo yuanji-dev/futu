@@ -42,8 +42,19 @@
           </ul>
         </li>
       </ul>
-      <form>
-        <input class="form-control" type="text" placeholder="Search" />
+      <form action="https://google.com/search" target="_blank" class="row">
+        <div class="col-auto">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="{{ i18n "search" }}"
+            name="q"
+          />
+          <input type="hidden" name="q" value="site:https://blog.gimo.me" />
+        </div>
+        <button class="col-auto btn btn-outline-success" type="submit">
+          <i class="bi-search"></i>
+        </button>
       </form>
     </div>
   </div>
