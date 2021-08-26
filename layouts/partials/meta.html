@@ -31,12 +31,10 @@
       {{ end -}}
     </div>
   {{- end }}
-  {{- if .Site.Params.moreMeta }}
-    <span>·</span>
-    <span> {{ i18n "wordCount" .WordCount }} </span>
-    <span>·</span>
-    <span>
-      {{ i18n "readingTime" .ReadingTime }}
-    </span>
-  {{- end }}
+  <span>·</span>
+  <span> {{ i18n "wordCount" .WordCount }} </span>
+  <span>·</span>
+  <span>
+    {{ i18n "readingTime" .ReadingTime }}
+  </span>
 </div>
