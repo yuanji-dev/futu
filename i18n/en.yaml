@@ -13,15 +13,19 @@ readMore:
 archive:
   other: "Archive"
 tags:
+  one: "Tag"
   other: "Tags"
+categories:
+  one: "Category"
+  other: "Categories"
 archiveCounter:
   one: "{{ .Count }} Post In Total"
   other: "{{ .Count }} Posts In Total"
-zeroTagCounter:
-  other: "No Tags"
-tagCounter:
-  one: "{{ .Count }} Tag In Total"
-  other: "{{ .Count }} Tags In Total"
+zeroTaxonomyCounter:
+  other: "No {{ .Taxonomy }}"
+taxonomyCounter:
+  one: "{{ .Count }} {{ .Taxonomy }} In Total"
+  other: "{{ .Count }} {{ .Taxonomy }} In Total"
 powered:
   other: "Powered by %s"
 theme:

@@ -13,15 +13,19 @@ readMore:
 archive:
   other: "归档"
 tags:
+  one: "标签"
   other: "标签"
+categories:
+  one: "分类"
+  other: "分类"
 archiveCounter:
   one: "共计 {{ .Count }} 篇文章"
   other: "共计 {{ .Count }} 篇文章"
-zeroTagCounter:
-  other: "暂无标签"
-tagCounter:
-  one: "共计 {{ .Count }} 个标签"
-  other: "共计 {{ .Count }} 个标签"
+zeroTaxonomyCounter:
+  other: "暂无{{ .Taxonomy }}"
+taxonomyCounter:
+  one: "共计 {{ .Count }} 个{{ .Taxonomy }}"
+  other: "共计 {{ .Count }} 个{{ .Taxonomy }}"
 powered:
   other: "由 %s 强力驱动"
 theme:

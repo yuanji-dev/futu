@@ -4,12 +4,13 @@
   {{ $name := .Data.Plural -}}
   {{ $terms := .Data.Terms.ByCount -}}
   {{ $length := len $terms -}}
+  {{ $taxonomy := i18n $name (dict "Count" $length) -}}
   <div class="row justify-content-lg-center">
     <div class="col-lg-8 text-center mb-2">
       {{ if eq $length 0 -}}
-        {{ i18n "zeroTagCounter" }}
+        {{ i18n "zeroTaxonomyCounter" (dict "Taxonomy" $taxonomy) }}
       {{- else -}}
-        {{ i18n "tagCounter" $length }}
+        {{ i18n "taxonomyCounter" (dict "Count" $length "Taxonomy" $taxonomy) }}
       {{- end }}
     </div>
     <div class="col-lg-8">
