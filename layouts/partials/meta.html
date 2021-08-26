@@ -1,0 +1,42 @@
+<div class="text-secondary">
+  {{ $createDate := .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+  {{ $updateDate := .Lastmod.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+  <span>
+    {{ $createDate }}
+  </span>
+  {{ if ne $createDate $updateDate }}
+    <span>
+      (
+      {{ with .GitInfo }}
+        <a
+          href="{{ $.Site.Params.gitRepo }}/commit/{{ .Hash }}"
+          title="{{ .Subject }}"
+          class="text-decoration-none text-success"
+          target="_blank"
+          rel="noopener"
+          >{{ print $updateDate " " (i18n "updated") }}</a
+        >
+      {{ else }}
+        {{ print $updateDate (i18n "updated") }}
+      {{ end }}
+      )
+    </span>
+  {{ end }}
+  {{ with .Params.categories -}}
+    <div>
+      {{ range . -}}
+        <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/">
+          {{ . }}
+        </a>
+      {{ end -}}
+    </div>
+  {{- end }}
+  {{- if .Site.Params.moreMeta }}
+    <span>·</span>
+    <span> {{ i18n "wordCount" .WordCount }} </span>
+    <span>·</span>
+    <span>
+      {{ i18n "readingTime" .ReadingTime }}
+    </span>
+  {{- end }}
+</div>

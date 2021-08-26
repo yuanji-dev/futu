@@ -4,26 +4,7 @@
     <div class="row justify-content-lg-center">
       <header class="col-lg-10 my-3 border-bottom pb-3">
         <h1>{{ .Title }}</h1>
-        <div class="text-secondary">
-          <span>
-            {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
-          </span>
-          {{ with .Params.categories -}}
-            <div>
-              {{ range . -}}
-                <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/">
-                  {{ . }}
-                </a>
-              {{ end -}}
-            </div>
-          {{- end }}
-          {{- if .Site.Params.moreMeta }}
-            <span> {{ i18n "wordCount" .WordCount }} </span>
-            <span>
-              {{ i18n "readingTime" .ReadingTime }}
-            </span>
-          {{- end }}
-        </div>
+        {{- partial "meta.html" . -}}
       </header>
     </div>
     <div class="row justify-content-lg-center">
