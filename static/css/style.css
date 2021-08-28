@@ -46,3 +46,7 @@ article figure figcaption h4 {
 article div.highlight {
   margin-bottom: 1rem;
 }
+
+.svg-icon {
+  margin-top: -3px;
+}
