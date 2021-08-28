@@ -3,7 +3,7 @@
     <div class="col-lg-10">
       <section class="row">
         {{- $paginator := .Paginate (where (where
-          .Site.RegularPages "Type" "post") ".Params.hiddenfromhomepage" "!=" true)
+          .Site.RegularPages "Type" "posts") ".Params.hiddenfromhomepage" "!=" true)
         }}
         {{- range $paginator.Pages -}}
           {{ .Render "summary" }}
