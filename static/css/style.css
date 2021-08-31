@@ -19,6 +19,9 @@ pre {
   unicode-bidi: normal;
   margin-bottom: 0;
 }
+.highlight pre {
+  padding: 0.5rem;
+}
 .sticky-top {
   top: var(--body-padding-top);
 }
