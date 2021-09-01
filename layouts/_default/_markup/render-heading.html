@@ -1,1 +1,3 @@
-<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }} <a href="#{{ .Anchor | safeURL }}">¶</a></h{{ .Level }}>
+{{ $heading_class := "" }}
+{{ if le .Level 3 }} {{ $heading_class = "class=\"border-bottom pb-1\"" }} {{end}}
+<h{{ .Level }} id="{{ .Anchor | safeURL }}" {{ $heading_class | safeHTMLAttr }} >{{ .Text | safeHTML }} <a class="text-decoration-none link-secondary" href="#{{ .Anchor | safeURL }}">¶</a></h{{ .Level }}>

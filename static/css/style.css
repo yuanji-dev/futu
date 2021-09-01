@@ -1,12 +1,15 @@
 :root {
   --body-padding-top: 76px;
 }
+
 html {
   scroll-padding: var(--body-padding-top) 0 0 0;
 }
+
 body {
   padding-top: var(--body-padding-top);
 }
+
 .iconfont {
   width: 2rem;
   height: 2rem;
@@ -14,14 +17,18 @@ body {
   fill: currentColor;
   overflow: hidden;
 }
+
 code,
 pre {
   unicode-bidi: normal;
   margin-bottom: 0;
 }
+
 .highlight pre {
   padding: 0.5rem;
+  border-radius: 0.25rem;
 }
+
 .sticky-top {
   top: var(--body-padding-top);
 }
@@ -52,4 +59,9 @@ article div.highlight {
 
 .svg-icon {
   margin-top: -3px;
+}
+
+blockquote {
+  border-inline-start: 0.25rem solid var(--bs-secondary);
+  padding-inline-start: 1rem;
 }
