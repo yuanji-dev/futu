@@ -65,3 +65,12 @@ blockquote {
   border-inline-start: 0.25rem solid var(--bs-secondary);
   padding-inline-start: 1rem;
 }
+
+#back-to-top {
+  width: 4rem;
+  height: 4rem;
+  right: 20px;
+  bottom: 20px;
+  position: fixed;
+  display: none;
+}

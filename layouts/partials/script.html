@@ -1,3 +1,21 @@
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/iconfont.js"></script>
+<script>
+  //Get the button
+  const BackToTopBtn = document.getElementById("back-to-top");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      BackToTopBtn.style.display = "block";
+    } else {
+      BackToTopBtn.style.display = "none";
+    }
+  };
+  // When the user clicks on the button, scroll to the top of the document
+  BackToTopBtn.addEventListener("click", function () {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  });
+</script>
 {{ template "_internal/google_analytics.html" . }}
