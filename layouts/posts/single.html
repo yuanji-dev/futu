@@ -2,25 +2,23 @@
 {{ define "main" -}}
   <article>
     <div class="row justify-content-lg-center">
-      <header class="col-lg-10 my-3 border-bottom pb-3">
+      <header class="col-lg-10 border-bottom pb-3">
         <h1>{{ .Title }}</h1>
         {{- partial "meta.html" . -}}
       </header>
-    </div>
-    <div class="row justify-content-lg-center">
       {{ $showTOC := false }}
       {{ with .TableOfContents }}
         {{ if ne . "<nav id=\"TableOfContents\"></nav>" }}
           {{ $showTOC = true }}
-          <aside class="col-lg-2 order-lg-last mb-3">
-            <div class="border rounded-3 sticky-top pe-3">
-              <h2 class="text-center fs-5 mt-2">{{ i18n "TOC" }}</h2>
+          <aside class="col-lg-2 order-lg-last mt-3">
+            <div class="border rounded-3 sticky-top py-1">
+              <h2 class="text-center fs-5">{{ i18n "TOC" }}</h2>
               {{ . }}
             </div>
           </aside>
         {{ end }}
       {{ end }}
-      <div class="col-lg-{{ if $showTOC }}8{{ else }}10{{ end }}">
+      <div class="col-lg-{{ if $showTOC }}8{{ else }}10{{ end }} pt-3">
         {{- partial "caution.html" . -}}
         {{ .Content }}
       </div>

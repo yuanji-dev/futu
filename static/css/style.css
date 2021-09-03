@@ -1,5 +1,5 @@
 :root {
-  --body-padding-top: 76px;
+  --body-padding-top: 56px;
 }
 
 html {
@@ -30,7 +30,7 @@ pre {
 }
 
 .sticky-top {
-  top: var(--body-padding-top);
+  top: calc(var(--body-padding-top) + 1rem);
 }
 
 #TableOfContents a {
@@ -67,8 +67,8 @@ blockquote {
 }
 
 #back-to-top {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   right: 20px;
   bottom: 20px;
   position: fixed;

@@ -1,12 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="/">{{ .Site.Title }}</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -44,13 +39,8 @@
       </ul>
       <form action="https://google.com/search" target="_blank" class="row">
         <div class="col-auto">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="{{ i18n "search" }}"
-            name="q"
-          />
-          <input type="hidden" name="q" value="site:https://blog.gimo.me" />
+          <input class="form-control me-2" type="search" placeholder="{{ i18n "search" }}" name="q" />
+          <input type="hidden" name="q" value="site:blog.gimo.me" />
         </div>
         <button class="col-auto btn btn-outline-success" type="submit">
           {{ partial "icons/search.html" . }}
