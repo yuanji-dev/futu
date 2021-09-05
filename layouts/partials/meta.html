@@ -1,11 +1,9 @@
-<div class="text-secondary">
+<div class="post-meta">
   {{ $createDate := .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
   {{ $updateDate := .Lastmod.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
-  <span>
+  <div class="text-secondary">
     {{ $createDate }}
-  </span>
-  {{ if ne $createDate $updateDate }}
-    <span>
+    {{ if ne $createDate $updateDate }}
       (
       {{ with .GitInfo }}
         <a
@@ -20,21 +18,21 @@
         {{ print $updateDate (i18n "updated") }}
       {{ end }}
       )
-    </span>
-  {{ end }}
-  {{ with .Params.categories -}}
+    {{ end }}
+    &nbsp;·&nbsp;{{ i18n "wordCount" .WordCount }}&nbsp;·&nbsp;{{ i18n "readingTime" .ReadingTime }}
+
+  </div>
+  {{ with .Params.tags -}}
     <div>
       {{ range . -}}
-        <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/">
-          {{ . }}
+        <a
+          class="badge rounded-pill bg-secondary text-light text-decoration-none"
+          href="{{ "tags" | relURL }}/{{ . | urlize }}/"
+        >
+          #{{ . }}
         </a>
       {{ end -}}
     </div>
   {{- end }}
-  <span>·</span>
-  <span> {{ i18n "wordCount" .WordCount }} </span>
-  <span>·</span>
-  <span>
-    {{ i18n "readingTime" .ReadingTime }}
-  </span>
+
 </div>
