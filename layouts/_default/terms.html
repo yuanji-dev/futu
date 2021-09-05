@@ -21,9 +21,12 @@
         {{ else }}
           {{ $termURL = print $termURL "/" }}
         {{ end }}
-        <a class="btn btn-secondary m-1" href="{{ $termURL }}">
-          {{ $value.Term }}
-          <span class="badge rounded-pill bg-dark">{{ $value.Count }}</span>
+        <a class="btn btn-secondary position-relative m-2" href="{{ $termURL }}">
+          #{{ $value.Term }}
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+            {{ $value.Count }}
+            <span class="visually-hidden">tags count</span>
+          </span>
         </a>
       {{ end -}}
     </div>
