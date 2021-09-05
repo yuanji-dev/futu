@@ -1,21 +1,16 @@
 <article>
   <header>
     <h1 class="mb-0">
-      <a class="text-decoration-none" href="{{ .RelPermalink }}"
-        >{{ .Title }}</a
-      >
+      <a class="text-decoration-none" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </h1>
     {{- partial "meta.html" . -}}
   </header>
-
-  <div>
+  <div class="mt-1">
     <div>
-      {{ .Summary }}
+      {{ .Summary | plainify }}
     </div>
     <div class="float-end">
-      <a href="{{ .RelPermalink }}" class="btn btn-outline-primary"
-        >{{ i18n "readMore" }}</a
-      >
+      <a href="{{ .RelPermalink }}" class="btn btn-outline-primary">{{ i18n "readMore" }}</a>
     </div>
   </div>
 </article>
