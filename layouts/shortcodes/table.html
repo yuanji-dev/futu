@@ -1,4 +1,4 @@
-{{ $htmlTable := .Inner | markdownify }}
+{{ $htmlTable := $.Page.RenderString .Inner }}
 {{ $class := .Get 0 }}
 {{ if not $class }}
   {{ $class = "table table-bordered" }}
