@@ -1,3 +1,4 @@
+<div class="table-responsive">
 {{ $htmlTable := $.Page.RenderString .Inner }}
 {{ $class := .Get 0 }}
 {{ if not $class }}
@@ -7,3 +8,4 @@
 {{ $new := printf "<table class=\"%s\">" $class }}
 {{ $htmlTable := replace $htmlTable $old $new }}
 {{ $htmlTable | safeHTML }}
+</div>
