@@ -20,7 +20,7 @@
       {{ end }}
       <div class="col-lg-{{ if $showTOC }}8{{ else }}10{{ end }} pt-2">
         {{- partial "caution.html" . -}}
-        {{ .Content }}
+        {{ .Content | replaceRE "<p>" "<p class=\"text-break\">" | safeHTML }}
       </div>
     </div>
   </article>
