@@ -60,6 +60,13 @@ article div.highlight {
   margin-bottom: 1rem;
 }
 
+.summary-head a {
+  text-decoration: none;
+}
+.summary-head a:hover {
+  text-decoration: underline;
+}
+
 .svg-icon {
   margin-top: -3px;
 }
