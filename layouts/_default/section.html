@@ -23,12 +23,10 @@
           </div>
         {{- end }}
         <div>
-          <span>{{ $element.Date.Format "01-02" }}</span>
-          <span>
-            <a href="{{ $element.RelPermalink }}" class="text-decoration-none">
-              {{ .Title }}
-            </a>
-          </span>
+          <span class="float-end text-muted font-monospace">{{ $element.Date.Format "01-02" }}</span>
+          <a href="{{ $element.RelPermalink }}" class="text-decoration-none">
+            {{ .Title }}
+          </a>
         </div>
       {{- end -}}
     </section>
