@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="/">{{ .Site.Title }}</a>
+    <a class="navbar-brand" href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,11 +10,11 @@
         {{- range .Site.Menus.main -}}
           <li class="nav-item">
             <a
-              class="nav-link {{ if eq .URL $currentPage.RelPermalink -}}
+              class="nav-link {{ if eq (.URL | relLangURL ) $currentPage.RelPermalink -}}
                 active
               {{- else }}
               {{ end }}"
-              href="{{ .URL | safeURL }}"
+              href="{{ .URL | relLangURL }}"
               >{{ .Name }}</a
             >
           </li>
