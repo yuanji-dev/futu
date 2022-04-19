@@ -1,33 +1,13 @@
-<ul class="nav justify-content-center border-bottom pb-1 mb-3">
-  {{ range $key, $value := .Site.Params.social }}
-    {{ $name := slicestr $key 2 }}
-    <li class="nav-item">
-      <a href="{{ $value }}" target="_blank" rel="noopener" class="nav-link px-1" title="{{ $name }}">
-        <svg class="iconfont" aria-hidden="true">
-          <use xlink:href="#icon-{{ $name }}"></use>
-        </svg>
-      </a>
-    </li>
-  {{ end }}
-  <li class="nav-item">
-    <a href="{{ .Site.RSSLink }}" class="nav-link px-1" title="RSS">
-      <svg class="iconfont" aria-hidden="true">
-        <use xlink:href="#icon-rss"></use>
-      </svg>
-    </a>
-  </li>
-</ul>
-<p class="text-center text-muted mb-0">
+<p>
   <span>
-    {{ (printf (i18n "powered") (printf `<a class="text-decoration-none" target="_blank" rel="noopener" href="https://gohugo.io">Hugo %s</a>` .Site.Hugo.Version)) | safeHTML }}
+    {{ (printf (i18n "powered") (printf `<a target="_blank" rel="noopener" href="https://gohugo.io">Hugo %s</a>` .Site.Hugo.Version)) | safeHTML }}
   </span>
   <span>|</span>
   <span>
-    {{ i18n "theme" }} -
-    <a class="text-decoration-none" target="_blank" rel="noopener" href="https://github.com/masakichi/futu">Futu</a>
+    {{ i18n "theme" }}
+    <a target="_blank" rel="noopener" href="https://github.com/masakichi/futu">futu@v2</a>
   </span>
-</p>
-<p class="user-select-all text-center text-muted">
+  <br />
   Copyright ©
   {{ .Site.Params.Since }}-{{ now.Format "2006" }}
   {{ .Site.Author.name }} All Rights Resarved.

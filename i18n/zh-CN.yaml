@@ -6,8 +6,8 @@ wordCount:
   one: "约 {{ .Count }} 字"
   other: "约 {{ .Count }} 字"
 readingTime:
-  one: "预计阅读 {{ .Count }} 分钟"
-  other: "预计阅读 {{ .Count }} 分钟"
+  one: "阅读 {{ .Count }} 分钟"
+  other: "阅读 {{ .Count }} 分钟"
 readMore:
   other: "阅读更多"
 archive:
@@ -39,4 +39,4 @@ TOC:
 search:
   other: "搜索"
 updated:
-  other: "有更新"
+  other: "更新"

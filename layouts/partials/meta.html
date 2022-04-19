@@ -1,38 +1,20 @@
-<div class="post-meta">
+<span>
   {{ $createDate := .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
   {{ $updateDate := .Lastmod.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
-  <div class="text-secondary">
-    {{ $createDate }}
-    {{ if ne $createDate $updateDate }}
-      (
-      {{ with .GitInfo }}
-        <a
-          href="{{ $.Site.Params.gitRepo }}/commit/{{ .Hash }}"
-          title="{{ .Subject }}"
-          class="text-decoration-none text-success"
-          target="_blank"
-          rel="noopener"
-          >{{ print $updateDate " " (i18n "updated") }}</a
-        >
-      {{ else }}
-        {{ print $updateDate (i18n "updated") }}
-      {{ end }}
-      )
-    {{ end }}
-    &nbsp;·&nbsp;{{ i18n "wordCount" .WordCount }}&nbsp;·&nbsp;{{ i18n "readingTime" .ReadingTime }}
-
-  </div>
+  📅
+  {{ $createDate }}
+  {{ if ne $createDate $updateDate }}
+    ({{ with .GitInfo }}
+      <a href="{{ $.Site.Params.gitRepo }}/commit/{{ .Hash }}" title="{{ .Subject }}" target="_blank" rel="noopener">{{ print $updateDate " " (i18n "updated") }}</a>
+    {{ else }}
+      {{ print $updateDate (i18n "updated") }}
+    {{ end }})
+  {{ end }}
   {{ with .Params.tags -}}
-    <div>
-      {{ range . -}}
-        <a
-          class="badge rounded-pill bg-dark text-light text-decoration-none"
-          href="{{ "tags" | relURL }}/{{ . | urlize }}/"
-        >
-          #{{ . }}
-        </a>
-      {{ end -}}
-    </div>
+    |🏷️
+    {{ range $i, $t := . -}}
+      {{ if $i }},{{ end }}
+      <a href="{{ "tags" | relURL }}/{{ $t | urlize }}/" rel="tag">#{{ $t }}</a>
+    {{- end -}}
   {{- end }}
-
-</div>
+</span>
