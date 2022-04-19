@@ -1,6 +1,9 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
+
 <!-- Author -->
 {{- if .Params.author -}}
   <meta name="author" content="{{ .Params.author | safeHTML }}" />
@@ -43,5 +46,7 @@
 {{ with .Site.Params.googleVerification }}
   <meta name="google-site-verification" content="{{ . }}" />
 {{ end }}
-<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css" />
+<!-- Favicon and Touch icons 
 <link rel="stylesheet" href="/css/style.css?v={{ now.Unix }}" />
+-->

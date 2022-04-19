@@ -1,13 +1,10 @@
-{{ define "title" -}}{{ .Title }} - {{ .Site.Title }}{{- end }}
 {{ define "main" -}}
-  <div class="row justify-content-lg-center">
-    <article class="col-lg-8">
-      <div>{{ .Content | replaceRE "<p>" "<p class=\"text-break\">" | safeHTML }}</div>
-    </article>
-  </div>
-  <div class="row justify-content-lg-center">
-    <div class="col-lg-8">
-      {{- partial "disqus.html" . -}}
-    </div>
-  </div>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      {{- partial "meta.html" . -}}
+    </header>
+    {{ .Content }}
+    {{- partial "disqus.html" . -}}
+  </article>
 {{- end }}
