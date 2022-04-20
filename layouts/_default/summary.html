@@ -1,16 +1,9 @@
 <article>
   <header>
-    <h1 class="mb-0 summary-head">
-      <a class="text-dark" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <h1>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </h1>
     {{- partial "meta.html" . -}}
   </header>
-  <div class="mt-1">
-    <div>
-      {{ .Summary | plainify }}
-    </div>
-    <div class="float-end">
-      <a href="{{ .RelPermalink }}" class="btn btn-outline-success">{{ i18n "readMore" }}</a>
-    </div>
-  </div>
+  {{ .Summary | plainify }}
 </article>

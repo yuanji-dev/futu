@@ -11,7 +11,7 @@
     {{ end }})
   {{ end }}
   {{ with .Params.tags -}}
-    |🏷️
+    | 🏷️
     {{ range $i, $t := . -}}
       {{ if $i }},{{ end }}
       <a href="{{ "tags" | relURL }}/{{ $t | urlize }}/" rel="tag">#{{ $t }}</a>

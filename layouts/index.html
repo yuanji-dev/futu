@@ -8,6 +8,7 @@
     {{ end -}}
   </article>
   <!-- pagination -->
+  {{ if or $paginator.Prev $paginator.Next }}
   <footer>
     <nav style="display: flex;justify-content: space-between;">
       {{ with $paginator.Prev -}}
@@ -16,10 +17,11 @@
         {{ i18n "prevPage" }}
       {{- end }}
       {{ with $paginator.Next -}}
-        <a class="float-end text-decoration-none" href="{{ .URL }}"> {{ i18n "nextPage" }} → </a>
+        <a href="{{ .URL }}"> {{ i18n "nextPage" }} → </a>
       {{ else }}
         {{ i18n "nextPage" }}
       {{- end }}
     </nav>
   </footer>
+  {{ end }}
 {{ end }}
