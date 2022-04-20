@@ -1,34 +1,27 @@
-{{- define "title" }}{{ i18n .Data.Plural }} - {{ .Site.Title }}{{ end -}}
-
+{{- define "title" }}{{ i18n .Data.Plural }} | {{ .Site.Title }}{{ end -}}
 {{- define "main" -}}
   {{ $name := .Data.Plural -}}
   {{ $terms := .Data.Terms.ByCount -}}
   {{ $length := len $terms -}}
   {{ $taxonomy := i18n $name (dict "Count" $length) -}}
-  <div class="row justify-content-lg-center">
-    <div class="col-lg-8 text-center mb-2">
-      {{ if eq $length 0 -}}
+  <header>
+    <h1>{{ i18n .Data.Plural }}</h1>
+    <span>
+      {{ if eq $length 0 }}
         {{ i18n "zeroTaxonomyCounter" (dict "Taxonomy" $taxonomy) }}
-      {{- else -}}
+      {{ else }}
         {{ i18n "taxonomyCounter" (dict "Count" $length "Taxonomy" $taxonomy) }}
-      {{- end }}
-    </div>
-    <div class="col-lg-8">
-      {{- range $key, $value := $terms }}
-        {{ $termURL := print ($name | relLangURL) "/" ($value.Term | urlize) }}
-        {{ if $.Site.Params.uglyURLs }}
-          {{ $termURL = print $termURL ".html" }}
-        {{ else }}
-          {{ $termURL = print $termURL "/" }}
-        {{ end }}
-        <a class="btn btn-secondary position-relative m-2" href="{{ $termURL }}">
-          #{{ $value.Term }}
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-            {{ $value.Count }}
-            <span class="visually-hidden">tags count</span>
-          </span>
-        </a>
-      {{ end -}}
-    </div>
-  </div>
+      {{ end }}
+    </span>
+  </header>
+  {{ range $key, $value := $terms }}
+    {{ $termURL := print ($name | relLangURL) "/" ($value.Term | urlize) }}
+    {{ if $.Site.Params.uglyURLs }}
+      {{ $termURL = print $termURL ".html" }}
+    {{ else }}
+      {{ $termURL = print $termURL "/" }}
+    {{ end }}
+    <a href="{{ $termURL }}">#{{ $value.Term }}</a>
+    <sup>{{ $value.Count }}</sup>
+  {{ end -}}
 {{- end }}

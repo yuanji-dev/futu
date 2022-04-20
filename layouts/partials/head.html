@@ -21,8 +21,8 @@
 {{- else if .Site.Params.keywords -}}
   <meta name="keywords" content="{{ delimit .Site.Params.keywords "," }}" />
 {{- end }}
-<meta name="robots" content="max-image-preview:large">
-<link rel="canonical" href="{{ .Permalink }}">
+<meta name="robots" content="max-image-preview:large" />
+<link rel="canonical" href="{{ .Permalink }}" />
 <!-- Favicon and Touch icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}?v=1630328699" />
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}?v=1630328699" />
@@ -44,3 +44,5 @@
   <meta name="google-site-verification" content="{{ . }}" />
 {{ end }}
 <link rel="stylesheet" href="/css/awsm.min.css" />
+<link rel="stylesheet" href="/css/zoom.css" />
+<script src="/js/zoom.min.js"></script>

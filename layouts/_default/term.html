@@ -1,37 +1,33 @@
-{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+{{- define "title" }}{{ i18n .Data.Plural }}: {{ .Title }} | {{ .Site.Title }}{{ end -}}
 {{- define "main" }}
-  <div class="row justify-content-lg-center">
-    {{- $paginator := .Paginate .Data.Pages .Site.Params.archivePaginate -}}
-    <section class="col-lg-8">
-      <div class="text-center mb-2">
-        {{ i18n "archiveCounter" (len .Data.Pages) }}
-      </div>
-      <div class="fs-4">{{ i18n .Data.Plural }}: {{ .Title }}</div>
-      {{ range $paginator.Pages -}}
-        <div>
-          <span>
-            {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
-          </span>
-          <a href="{{ .RelPermalink }}" class="text-decoration-none">
-            {{ .Title }}
-          </a>
-        </div>
-      {{- end }}
-    </section>
-    <!-- pagination -->
-    <nav class="col-lg-8 border-top mt-3 pt-3">
-      {{ with $paginator.Prev -}}
-        <a class="float-start text-decoration-none" href="{{ .URL }}">
-          <i class="bi-arrow-left-circle"></i>
+  <header>
+    <h1>{{ i18n .Data.Plural }}: {{ .Title }}</h1>
+    <span>{{ i18n "archiveCounter" (len .Data.Pages) }}</span>
+  </header>
+  {{- $paginator := .Paginate .Data.Pages .Site.Params.archivePaginate -}}
+  {{ range $paginator.Pages -}}
+    <p>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span>
+        {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+      </span>
+    </p>
+  {{- end }}
+  <!-- pagination -->
+  {{ if or $paginator.Prev $paginator.Next }}
+    <footer>
+      <nav style="display: flex;justify-content: space-between;">
+        {{ with $paginator.Prev -}}
+          <a href="{{ .URL }}">← {{ i18n "prevPage" }}</a>
+        {{ else }}
           {{ i18n "prevPage" }}
-        </a>
-      {{- end }}
-      {{ with $paginator.Next -}}
-        <a class="float-end text-decoration-none" href="{{ .URL }}">
+        {{- end }}
+        {{ with $paginator.Next -}}
+          <a href="{{ .URL }}"> {{ i18n "nextPage" }} → </a>
+        {{ else }}
           {{ i18n "nextPage" }}
-          <i class="bi-arrow-right-circle"></i>
-        </a>
-      {{- end }}
-    </nav>
-  </div>
+        {{- end }}
+      </nav>
+    </footer>
+  {{ end }}
 {{- end }}
