@@ -2,32 +2,19 @@
 {{- define "main" }}
   <header>
     <h1>{{ i18n .Data.Plural }}: {{ .Title }}</h1>
-    <span>{{ i18n "archiveCounter" (len .Data.Pages) }}</span>
+    <span>{{ i18n "archiveCounter" (len .Pages) }}</span>
   </header>
-  {{- $paginator := .Paginate .Data.Pages .Site.Params.archivePaginate -}}
-  {{ range $paginator.Pages -}}
-    <p>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <span>
-        {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
-      </span>
-    </p>
-  {{- end }}
-  <!-- pagination -->
-  {{ if or $paginator.Prev $paginator.Next }}
-    <footer>
-      <nav style="display: flex;justify-content: space-between;">
-        {{ with $paginator.Prev -}}
-          <a href="{{ .URL }}">← {{ i18n "prevPage" }}</a>
-        {{ else }}
-          {{ i18n "prevPage" }}
-        {{- end }}
-        {{ with $paginator.Next -}}
-          <a href="{{ .URL }}"> {{ i18n "nextPage" }} → </a>
-        {{ else }}
-          {{ i18n "nextPage" }}
-        {{- end }}
-      </nav>
-    </footer>
+  {{- $paginator := .Paginate .Pages (.Site.Params.paginate | default 10) -}}
+  {{ range $paginator.Pages.GroupByPublishDate "2006" }}
+    {{- if ne .Key "0001" }}
+      <h2>{{ .Key }}</h2>
+      {{ range .Pages }}
+        <p>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <span>{{ .PublishDate.Format "01/02" }}</span>
+        </p>
+      {{ end }}
+    {{ end }}
   {{ end }}
+  {{ partial "paginator.html" $paginator }}
 {{- end }}

@@ -1,0 +1,17 @@
+{{ if or .Prev .Next }}
+  <!-- pagination -->
+  <footer>
+    <nav style="display: flex;justify-content: space-between;">
+      {{ with .Prev -}}
+        <a href="{{ .URL }}">← {{ i18n "prevPage" }}</a>
+      {{ else }}
+        {{ i18n "prevPage" }}
+      {{- end }}
+      {{ with .Next -}}
+        <a href="{{ .URL }}"> {{ i18n "nextPage" }} → </a>
+      {{ else }}
+        {{ i18n "nextPage" }}
+      {{- end }}
+    </nav>
+  </footer>
+{{ end }}

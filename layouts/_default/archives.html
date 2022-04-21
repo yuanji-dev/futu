@@ -1,10 +1,10 @@
 {{- define "main" }}
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
   <header>
     <h1>{{ .Title }}</h1>
-    <span>{{ i18n "archiveCounter" (len .Pages) }}</span>
+    <span>{{ i18n "archiveCounter" (len $pages) }}</span>
   </header>
-  {{- $paginator := .Paginate .Pages (.Site.Params.paginate | default 10) -}}
-  {{ range $paginator.Pages.GroupByPublishDate "2006" }}
+  {{ range $pages.GroupByPublishDate "2006" }}
     {{- if ne .Key "0001" }}
       <h2>{{ .Key }}</h2>
       {{ range .Pages }}
@@ -15,5 +15,4 @@
       {{ end }}
     {{ end }}
   {{ end }}
-  {{ partial "paginator.html" $paginator }}
 {{- end }}

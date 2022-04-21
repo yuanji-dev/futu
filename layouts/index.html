@@ -1,27 +1,16 @@
 {{ define "main" }}
-  <article>
-    {{- $paginator := .Paginate (where (where
-      .Site.RegularPages "Type" "posts") ".Params.hiddenfromhomepage" "!=" true)
-    }}
-    {{- range $paginator.Pages -}}
-      {{ .Render "summary" }}
-    {{ end -}}
-  </article>
-  <!-- pagination -->
-  {{ if or $paginator.Prev $paginator.Next }}
-  <footer>
-    <nav style="display: flex;justify-content: space-between;">
-      {{ with $paginator.Prev -}}
-        <a href="{{ .URL }}">← {{ i18n "prevPage" }}</a>
-      {{ else }}
-        {{ i18n "prevPage" }}
-      {{- end }}
-      {{ with $paginator.Next -}}
-        <a href="{{ .URL }}"> {{ i18n "nextPage" }} → </a>
-      {{ else }}
-        {{ i18n "nextPage" }}
-      {{- end }}
-    </nav>
-  </footer>
-  {{ end }}
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{- $paginator := .Paginate $pages }}
+  {{- range $paginator.Pages -}}
+    <article>
+      <header>
+        <h1>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h1>
+        {{- partial "meta.html" . -}}
+      </header>
+      {{ .Summary | plainify }}
+    </article>
+  {{ end -}}
+  {{ partial "paginator.html" $paginator }}
 {{ end }}
