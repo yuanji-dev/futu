@@ -4,6 +4,14 @@
       <h1>{{ .Title }}</h1>
       {{- partial "meta.html" . -}}
     </header>
+    {{ with .TableOfContents }}
+      <aside>
+        <header>
+          <h2>{{ i18n "TOC" }}</h2>
+        </header>
+        {{ . }}
+      </aside>
+    {{ end }}
     {{ .Content }}
     {{- partial "disqus.html" . -}}
   </article>
