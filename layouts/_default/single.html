@@ -4,13 +4,17 @@
       <h1>{{ .Title }}</h1>
       {{- partial "meta.html" . -}}
     </header>
-    {{ with .TableOfContents }}
-      <aside>
-        <header>
-          <h2>{{ i18n "TOC" }}</h2>
-        </header>
-        {{ . }}
-      </aside>
+    {{ if (.Params.toc | default true) }}
+      {{ with .TableOfContents }}
+        {{ if ne . "<nav id=\"TableOfContents\"></nav>" }}
+          <aside>
+            <header>
+              <h2>{{ i18n "TOC" }}</h2>
+            </header>
+            {{ . }}
+          </aside>
+        {{ end }}
+      {{ end }}
     {{ end }}
     {{ .Content }}
     {{- partial "disqus.html" . -}}
