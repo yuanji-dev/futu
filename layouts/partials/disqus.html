@@ -1,9 +1,10 @@
-{{ $disqusLoader := resources.Get "js/disqusloader.js" | minify }}
-<div class="disqus"></div>
-<script src="{{ $disqusLoader.Permalink }}"></script>
+{{ with .Site.DisqusShortname }}
+  {{ $disqusLoader := resources.Get "js/disqusloader.js" | minify }}
+  <div class="disqus"></div>
+<script src="{{ $disqusLoader.RelPermalink }}"></script>
 <script>
-  var disqus_shortname = '{{ .Site.DisqusShortname }}';
   disqusLoader(".disqus", {
-    scriptUrl: "//" + disqus_shortname + ".disqus.com/embed.js",
+    scriptUrl: "//" + "{{ . }}" + ".disqus.com/embed.js",
   });
 </script>
+{{ end }}

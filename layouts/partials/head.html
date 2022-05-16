@@ -43,11 +43,14 @@
 {{ with .Site.Params.googleVerification }}
   <meta name="google-site-verification" content="{{ . }}" />
 {{ end }}
-<link rel="stylesheet" href="/css/awsm.min.css" />
-<link rel="stylesheet" href="/css/zoom.css" />
-<script src="/js/zoom.min.js"></script>
+{{ $awsmCss := resources.Get "scss/awsm.scss" | resources.ToCSS }}
+{{ $zoomCss := resources.Get "css/zoom.css" }}
+{{ $styles := slice $awsmCss $zoomCss | resources.Concat "styles.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{ $zoomJs := resources.Get "js/zoom.js" | minify | fingerprint }}
+<script src="{{ $zoomJs.RelPermalink }}"></script>
 <style>
-iframe[sandbox]:not([sandbox=""]) {
-  display: none !important;
-}
+  iframe[sandbox]:not([sandbox=""]) {
+    display: none !important;
+  }
 </style>
