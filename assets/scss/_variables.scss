@@ -10,15 +10,15 @@ $size-map: (
   'font-max': 1.125rem, // 18px
   'line-height-min': 1.25,
   'line-height-max': 1.5,
-  'width-min': 20rem, // 320px / 16px
-  'width-max': 40rem, // 640px / 16px
+  'width-min': 22.5rem, // 360px / 16px
+  'width-max': 45rem, // 720px / 16px
 );
 
 // theme colors passed from build system and got from /themes.js
 
 $primary: #000;
 $secondary: #fff;
-$stealthy: #aaa;
+$stealthy: #585858;
 $invisible: #f2f2f2;
 $selection-base: #0064c1;
 $link: #0064c1;
