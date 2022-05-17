@@ -638,6 +638,11 @@ output {
 code, kbd, var, samp {
   font-family: font('mono');
   font-style: normal;
+  background: $background;
+  color: $code;
+  padding: 2px 4px;
+  border-radius: 6px;
+  font-size: .85em;
 }
 
 pre {
@@ -651,6 +656,7 @@ pre {
     box-sizing: border-box;
     min-width: 100%;
     padding: 10px;
+    font-size: 1em;
   }
 }
 

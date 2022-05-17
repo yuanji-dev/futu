@@ -5,7 +5,8 @@
   {{ $createDate }}
   {{ if ne $createDate $updateDate }}
     ({{ with .GitInfo }}
-      <a href="{{ $.Site.Params.gitRepo }}/commit/{{ .Hash }}" title="{{ .Subject }}" target="_blank" rel="noopener">{{ print $updateDate " " (i18n "updated") }}</a>
+    {{ $gitBranch := $.Site.Params.gitBranch | default "main" }}
+    <a href="{{ $.Site.Params.gitRepo }}/commits/{{ $gitBranch }}/content/{{ $.File.Path }}" title="{{ .Subject }}" target="_blank" rel="noopener">{{ print $updateDate " " (i18n "updated") }}</a>
     {{ else }}
       {{ print $updateDate (i18n "updated") }}
     {{ end }})

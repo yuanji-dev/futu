@@ -44,6 +44,7 @@
   <meta name="google-site-verification" content="{{ . }}" />
 {{ end }}
 {{ $awsmCss := resources.Get "scss/awsm.scss" | resources.ToCSS }}
+{{ $syntaxCss := resources.Get "css/syntax.css" }}
 {{ $miscCss := resources.Get "css/misc.css" }}
-{{ $styles := slice $awsmCss $miscCss | resources.Concat "styles.css" | minify | fingerprint }}
+{{ $styles := slice $awsmCss $syntaxCss $miscCss | resources.Concat "styles.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
