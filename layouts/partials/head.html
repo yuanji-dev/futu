@@ -44,13 +44,6 @@
   <meta name="google-site-verification" content="{{ . }}" />
 {{ end }}
 {{ $awsmCss := resources.Get "scss/awsm.scss" | resources.ToCSS }}
-{{ $zoomCss := resources.Get "css/zoom.css" }}
-{{ $styles := slice $awsmCss $zoomCss | resources.Concat "styles.css" | minify | fingerprint }}
+{{ $miscCss := resources.Get "css/misc.css" }}
+{{ $styles := slice $awsmCss $miscCss | resources.Concat "styles.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
-{{ $zoomJs := resources.Get "js/zoom.js" | minify | fingerprint }}
-<script src="{{ $zoomJs.RelPermalink }}"></script>
-<style>
-  iframe[sandbox]:not([sandbox=""]) {
-    display: none !important;
-  }
-</style>

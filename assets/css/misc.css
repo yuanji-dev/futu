@@ -1,0 +1,3 @@
+iframe[sandbox]:not([sandbox=""]) {
+  display: none !important;
+}
