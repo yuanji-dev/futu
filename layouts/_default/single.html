@@ -4,7 +4,7 @@
       <h1>{{ .Title }}</h1>
       {{- partial "meta.html" . -}}
     </header>
-    {{ if (.Params.toc | default true) }}
+    {{ if (.Params.toc | default (.Site.Params.toc | default false )) }}
       {{ with .TableOfContents }}
         {{ if ne . "<nav id=\"TableOfContents\"></nav>" }}
           <aside>
