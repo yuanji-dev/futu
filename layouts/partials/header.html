@@ -1,9 +1,14 @@
 <h1>{{ .Site.Title }}</h1>
 <nav>
   <ul>
+    {{ $currentPage := . }}
     {{- range .Site.Menus.main -}}
       <li>
-        <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+        {{ if eq (.URL | relLangURL ) $currentPage.RelPermalink -}}
+          {{ .Name }}
+        {{ else }}
+          <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+        {{ end }}
       </li>
     {{- end -}}
   </ul>
