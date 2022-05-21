@@ -1,6 +1,9 @@
 {{ define "main" }}
   <div>
-    {{ $image := resources.GetMatch "img/404.jpeg" }}
+    {{ $image := resources.GetMatch "img/404.*" }}
+    {{ if not $image }}
+      {{ $image = resources.GetMatch "img/default-404.jpeg" }}
+    {{ end }}
     {{ $image := $image.Resize (print $image.Width "x" $image.Height " webp") }}
     <img
       src="{{ $image.RelPermalink }}"
