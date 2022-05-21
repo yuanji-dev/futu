@@ -131,7 +131,6 @@ p {
   }
 
   img, picture {
-    float: right;
     margin-bottom: .5em;
     margin-left: .5em;
   }
@@ -350,6 +349,7 @@ abbr {
 img, picture {
   display: block;
   max-width: 100%;
+  height: auto;
   margin: 0 auto;
 }
 
