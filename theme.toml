@@ -4,9 +4,9 @@
 name = "Futu"
 license = "MIT"
 licenselink = "https://github.com/masakichi/futu/blob/master/LICENSE"
-description = ""
+description = "Yet another minimal hugo theme, built-in styles are modified upon awsm.css."
 homepage = "https://github.com/masakichi/futu"
-tags = []
+tags = ["blog", "minimal"]
 features = []
 min_version = "0.86.0"
 
