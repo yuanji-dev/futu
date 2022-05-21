@@ -24,16 +24,11 @@
 <meta name="robots" content="max-image-preview:large" />
 <link rel="canonical" href="{{ .Permalink }}" />
 <!-- Favicon and Touch icons -->
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}?v=1630328699" />
-<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}?v=1630328699" />
-<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}?v=1630328699" />
-<link rel="manifest" href="{{ "site.webmanifest" | relURL }}?v=1630328699" />
-<link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | relURL }}?v=1630328699" color="#cf1111" />
-<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}?v=1630328699" />
-<meta name="apple-mobile-web-app-title" content="{{ $.Site.Title }}" />
-<meta name="application-name" content="{{ $.Site.Title }}" />
-<meta name="msapplication-TileColor" content="#b91d47" />
-<meta name="theme-color" content="#ffffff" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}" />
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}" />
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}" />
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
+<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}" />
 {{ template "_internal/opengraph.html" . }}
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/schema.html" . }}

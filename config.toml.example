@@ -1,0 +1,127 @@
+baseURL = "example.com"
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = false
+title = "Someone's Blog"
+theme = "futu"
+enableRobotsTXT = true
+enableEmoji = true
+enableGitInfo = true
+hasCJKLanguage = true
+paginate = 10
+#disqusShortname = ""
+#googleAnalytics = ""
+
+[imaging]
+  quality = 75
+
+[author]
+  name = "Someone"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+  keywords = []
+  description = ""
+  # Site creation time
+  since = "2016"
+  paginate = 10
+  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+  dateFormatToUse = "2006/01/02"
+  # Whether display TOC or not.
+  toc = true
+  googleVerification = ""
+
+[params.git]
+  repo = "https://github.com/masakichi/futu"
+  branch = "main"
+
+[mediaTypes]
+[mediaTypes."text/plain"]
+  suffixes = ["md"]
+
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS", "MarkDown"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
+
+[markup]
+[markup.tableOfContents]
+  startLevel = 2
+[markup.goldmark.renderer]
+  unsafe = true
+[markup.highlight]
+  anchorLineNos = true
+  codeFences = true
+  guessSyntax = true
+  hl_Lines = ''
+  lineAnchors = ''
+  lineNoStart = 1
+  lineNos = true
+  lineNumbersInTable = false
+  noClasses = false
+  noHl = false
+  style = 'monokai'
+  tabWidth = 4
+
+[languages]
+[languages.zh-CN]
+  title = "一个人的博客"
+  languageCode = 'zh-CN'
+  languageName = '简体中文'
+# https://gohugo.io/content-management/menus/
+[languages.zh-CN.menu]
+[[languages.zh-CN.menu.main]]
+  name = "首页"
+  weight = 10
+  identifier = "home"
+  url = "/"
+[[languages.zh-CN.menu.main]]
+  name = "归档"
+  weight = 20
+  identifier = "archives"
+  url = "/archives/"
+[[languages.zh-CN.menu.main]]
+  name = "标签"
+  weight = 30
+  identifier = "tags"
+  url = "/tags/"
+[[languages.zh-CN.menu.main]]
+  name = "关于"
+  weight = 40
+  identifier = "about"
+  url = "/about/"
+
+[languages.en]
+  title = "Someone's Blog"
+  languageCode = 'en'
+  languageName = 'English'
+[[languages.en.menu.main]]
+  name = "Home"
+  weight = 10
+  identifier = "home"
+  url = "/"
+[[languages.en.menu.main]]
+  name = "Archives"
+  weight = 20
+  identifier = "archives"
+  url = "/archives/"
+[[languages.en.menu.main]]
+  name = "Tags"
+  weight = 30
+  identifier = "tags"
+  url = "/tags/"
+[[languages.en.menu.main]]
+  name = "About"
+  weight = 40
+  identifier = "about"
+  url = "/about/"

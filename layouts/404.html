@@ -1,5 +1,13 @@
 {{ define "main" }}
   <div>
-    <img src="/img/404.jpeg" alt="404 Not Found" />
+    {{ $image := resources.GetMatch "img/404.jpeg" }}
+    {{ $image := $image.Resize (print $image.Width "x" $image.Height " webp") }}
+    <img
+      src="{{ $image.RelPermalink }}"
+      alt="404 Not Found"
+      width="{{ $image.Width }}"
+      height="{{ $image.Height }}"
+      title="404 Not Found"
+    />
   </div>
 {{ end }}
