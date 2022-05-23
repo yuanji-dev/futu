@@ -1,6 +1,7 @@
 <p>
   {{ $image := .Page.Resources.GetMatch .Destination }}
-  {{ if $image }}
+  {{/* https://github.com/gohugoio/hugo/issues/5030 */}}
+  {{ if and $image (ne $image.MediaType.SubType "gif") }}
     {{/* https://discourse.gohugo.io/t/image-conversion-without-resizing/32429 */}}
     {{ $image := $image.Resize (print $image.Width "x" $image.Height " webp") }}
     <img
