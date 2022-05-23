@@ -40,3 +40,5 @@ search:
   other: "搜索"
 updated:
   other: "更新"
+buildTime:
+  other: "于 %s 构建"
