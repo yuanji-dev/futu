@@ -1,21 +1,15 @@
 <p>
   {{ $image := .Page.Resources.GetMatch .Destination }}
   {{/* https://github.com/gohugoio/hugo/issues/5030 */}}
-  {{ if and $image (ne $image.MediaType.SubType "gif") }}
+  {{ if ne $image.MediaType.SubType "gif" }}
     {{/* https://discourse.gohugo.io/t/image-conversion-without-resizing/32429 */}}
-    {{ $image := $image.Resize (print $image.Width "x" $image.Height " webp") }}
-    <img
-      src="{{ $image.RelPermalink }}"
-      alt="{{ .Text }}"
-      width="{{ $image.Width }}"
-      height="{{ $image.Height }}"
-      {{ with .Title }}title="{{ . }}"{{ end }}
-    />
-  {{ else }}
-    <img
-      src="{{ .Destination | safeURL }}"
-      alt="{{ .Text }}"
-      {{ with .Title }}title="{{ . }}"{{ end }}
-    />
+    {{ $image = $image.Resize (print $image.Width "x" $image.Height " webp") }}
   {{ end }}
+  <img
+    src="{{ $image.RelPermalink }}"
+    alt="{{ .Text }}"
+    width="{{ $image.Width }}"
+    height="{{ $image.Height }}"
+    {{ with .Title }}title="{{ . }}"{{ end }}
+  />
 </p>

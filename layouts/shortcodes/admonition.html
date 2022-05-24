@@ -5,14 +5,14 @@
         {{ .Get 1 }}
       </summary>
       <div>
-        {{ .Inner | markdownify }}
+        {{ $.Page.RenderString .Inner }}
       </div>
     </details>
   {{- else -}}
     <div>
       <p>{{ .Get 1 }}</p>
       <div>
-        {{ .Inner | markdownify }}
+        {{ $.Page.RenderString .Inner }}
       </div>
     </div>
   {{- end }}
@@ -23,14 +23,14 @@
         {{ .Get 1 }}
       </summary>
       <div>
-        {{ .Inner | markdownify }}
+        {{ $.Page.RenderString .Inner }}
       </div>
     </details>
   {{- else -}}
     <div>
       <p>{{ .Get 1 }}</p>
       <div>
-        {{ .Inner | markdownify }}
+        {{ $.Page.RenderString .Inner }}
       </div>
     </div>
   {{- end }}
