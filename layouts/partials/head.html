@@ -1,7 +1,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="{{ partial "head/author.html" . }}" />
+<meta name="author" content="{{ (partial "head/author.html" .).Get "name" }}" />
 <meta name="description" content="{{ partial "head/description.html" . }}" />
 <meta name="keywords" content="{{ delimit (partial "head/keywords.html" .) "," }}" />
 <meta name="robots" content="max-image-preview:large" />
