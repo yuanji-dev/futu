@@ -1,0 +1,16 @@
+{{ $image := "" }}
+{{- with $.Params.images -}}
+  {{ $image = index . 0 | absURL }}
+{{ else -}}
+  {{- $images := $.Resources.ByType "image" -}}
+  {{- $featured := $images.GetMatch "*feature*" -}}
+  {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
+  {{- with $featured -}}
+    {{ $image = $featured.Permalink }}
+  {{- else -}}
+    {{- with $.Site.Params.images -}}
+      {{ $image = index . 0 | absURL }}
+    {{- end -}}
+  {{- end -}}
+{{- end }}
+{{ return $image }}

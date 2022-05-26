@@ -1,0 +1,7 @@
+{{ $keywords := slice }}
+{{ if .Keywords }}
+  {{ $keywords = .Keywords }}
+{{- else if .Site.Params.keywords -}}
+  {{ $keywords = .Site.Params.keywords }}
+{{- end -}}
+{{ return $keywords }}

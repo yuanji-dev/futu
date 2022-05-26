@@ -1,0 +1,9 @@
+{{ $description := "" }}
+{{ if .Description }}
+  {{ $description = .Description | safeHTML }}
+{{- else if .IsPage -}}
+  {{ $description = .Summary | plainify }}
+{{- else if .Site.Params.description -}}
+  {{ $description = .Site.Params.description | safeHTML }}
+{{- end -}}
+{{ return $description }}

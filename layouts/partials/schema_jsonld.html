@@ -1,0 +1,46 @@
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "headline": {{ .Title }},
+  "url": {{ .Permalink }},
+  {{- with (partial "head/cover.html" .) }}
+  "image": {{ . }},
+  {{ end -}}
+  "description": {{ partial "head/description.html" . }},
+  "keywords": {{ partial "head/keywords.html" . }},
+  "author": {
+    "@type": "Person",
+    "name": {{ partial "head/author.html" . }}
+  },
+  "inLanguage": {{ .Site.LanguageCode }}
+}
+</script>
+{{ else if and .IsPage (ne .Params.layout "archives") }}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ .Title }},
+  "url": {{ .Permalink }},
+  {{- with (partial "head/cover.html" .) }}
+  "image": {{ . }},
+  {{ end -}}
+  "description": {{ partial "head/description.html" . }},
+  "keywords": {{ partial "head/keywords.html" . }},
+  "articleBody": {{ .Content | safeJS | htmlUnescape | plainify }},
+  {{- with .Section }}
+  "articleSection": {{ . }},
+  {{ end -}}
+  "wordCount": {{ .WordCount }},
+  "author": {
+    "@type": "Person",
+    "name": {{ partial "head/author.html" . }}
+  },
+  "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05-0700" | jsonify | safeJS }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05-0700" | jsonify | safeJS }},
+  "inLanguage": {{ .Site.LanguageCode }}
+}
+</script>
+{{ end }}

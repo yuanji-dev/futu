@@ -1,0 +1,7 @@
+{{ $author := "" }}
+{{ if .Params.author }}
+  {{ $author = .Params.author | safeHTML }}
+{{ else }}
+  {{ $author = .Site.Author.name | safeHTML }}
+{{ end }}
+{{ return $author }}

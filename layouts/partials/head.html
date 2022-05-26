@@ -1,37 +1,15 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- Author -->
-{{- if .Params.author -}}
-  <meta name="author" content="{{ .Params.author | safeHTML }}" />
-{{- else -}}
-  <meta name="author" content="{{ .Site.Author.name | safeHTML }}" />
-{{- end -}}
-<!-- Description -->
-{{- if .Description -}}
-  <meta name="description" content="{{ .Description | safeHTML }}" />
-{{- else if .IsPage -}}
-  <meta name="description" content="{{ .Summary | plainify }}" />
-{{- else if .Site.Params.description -}}
-  <meta name="description" content="{{ .Site.Params.description | safeHTML }}" />
-{{- end -}}
-<!-- Keywords -->
-{{- if .Keywords -}}
-  <meta name="keywords" content="{{ delimit .Keywords "," }}" />
-{{- else if .Site.Params.keywords -}}
-  <meta name="keywords" content="{{ delimit .Site.Params.keywords "," }}" />
-{{- end }}
+<meta name="author" content="{{ partial "head/author.html" . }}" />
+<meta name="description" content="{{ partial "head/description.html" . }}" />
+<meta name="keywords" content="{{ delimit (partial "head/keywords.html" .) "," }}" />
 <meta name="robots" content="max-image-preview:large" />
 <link rel="canonical" href="{{ .Permalink }}" />
-<!-- Favicon and Touch icons -->
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}" />
-<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}" />
-<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}" />
-<link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
-<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}" />
+{{ partial "head/icon.html" . }}
 {{ template "_internal/opengraph.html" . }}
 {{ template "_internal/twitter_cards.html" . }}
-{{ template "_internal/schema.html" . }}
+{{ partial "schema_jsonld.html" . }}
 {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}
 {{ end -}}
