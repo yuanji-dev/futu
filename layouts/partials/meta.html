@@ -2,13 +2,13 @@
   {{ $createDate := .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
   {{ $updateDate := .Lastmod.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
   📅
-  {{ $createDate }}
+  <time datetime="{{ partial "rfc3339.html" .Date }}">{{ $createDate }}</time>
   {{ if ne $createDate $updateDate }}
     ({{ with .GitInfo }}
     {{ $gitBranch := $.Site.Params.git.branch | default "main" }}
-    <a href="{{ $.Site.Params.git.repo }}/commits/{{ $gitBranch }}/content/{{ $.File.Path }}" title="{{ .Subject }}" target="_blank" rel="noopener">{{ print $updateDate " " (i18n "updated") }}</a>
+    <a href="{{ $.Site.Params.git.repo }}/commits/{{ $gitBranch }}/content/{{ $.File.Path }}" title="{{ .Subject }}" target="_blank" rel="noopener"><time datetime="{{ partial "rfc3339.html" $.Lastmod }}">{{ $updateDate }}</time> {{ (i18n "updated") }}</a>
     {{ else }}
-      {{ print $updateDate (i18n "updated") }}
+      <time datetime="{{ partial "rfc3339.html" $.Lastmod }}">{{ $updateDate }}</time> {{ (i18n "updated") }}
     {{ end }})
   {{ end }}
   {{ with .Params.tags -}}
