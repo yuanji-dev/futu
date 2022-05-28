@@ -21,8 +21,8 @@
 {{ with .Site.Params.googleVerification }}
   <meta name="google-site-verification" content="{{ . }}" />
 {{ end }}
-{{ $awsmCss := resources.Get "scss/awsm.scss" | resources.ToCSS }}
+{{ $main := resources.Get "scss/main.scss" | resources.ToCSS }}
 {{ $syntaxCss := resources.Get "css/syntax.css" }}
 {{ $miscCss := resources.Get "css/misc.css" }}
-{{ $styles := slice $awsmCss $syntaxCss $miscCss | resources.Concat "styles.css" | minify | fingerprint }}
+{{ $styles := slice $main $syntaxCss $miscCss | resources.Concat "styles.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />

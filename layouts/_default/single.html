@@ -17,6 +17,10 @@
       {{ end }}
     {{ end }}
     {{ .Content }}
-    {{- partial "disqus.html" . -}}
+    {{ $currentOutputFormat := (partial "current_output_format.html" .) }}
+    {{ if eq $currentOutputFormat.Name "AMP" }}
+    {{ else }}
+      {{- partial "disqus.html" . -}}
+    {{ end }}
   </article>
 {{- end }}

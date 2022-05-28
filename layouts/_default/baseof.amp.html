@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html ⚡ lang="{{ .Site.LanguageCode }}">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
       {{ block "title" . }}
         {{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}
       {{ end }}
     </title>
+    <meta name="author" content="{{ (partial "head/author.html" .).Get "name" }}" />
+    <meta name="description" content="{{ partial "head/description.html" . }}" />
+    <meta name="keywords" content="{{ delimit (partial "head/keywords.html" .) "," }}" />
     <link rel="canonical" href="{{ with  .OutputFormats.Get "html" -}}{{ .Permalink }}{{- end }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+    {{ partial "schema_jsonld.html" . }}
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
-      h1 {
-        color: red;
-      }
+    {{ $main := resources.Get "scss/main.scss" | resources.ToCSS }}
+    {{ $syntaxCss := resources.Get "css/syntax.css" }}
+    {{ $inlineCss := slice $main $syntaxCss | resources.Concat "inline.css" | minify }}
+    {{ replace $inlineCss.Content "@charset \"UTF-8\";" "" | safeCSS }}
     </style>
   </head>
   <body>
-    <header>{{- partial "header.html" . -}}</header>
-    <main>
-      {{- block "main" . }}
-      {{- end }}
-    </main>
-    <footer>{{- partial "footer.html" . -}}</footer>
+    <div id="amp-body">
+      <header>{{- partial "header.html" . -}}</header>
+      <main>
+        {{- block "main" . }}
+        {{- end }}
+      </main>
+      <footer>{{- partial "footer.html" . -}}</footer>
+    </div>
   </body>
 </html>
