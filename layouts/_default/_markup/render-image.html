@@ -1,15 +1,21 @@
-<p>
-  {{ $image := .Page.Resources.GetMatch .Destination }}
-  {{/* https://github.com/gohugoio/hugo/issues/5030 */}}
-  {{ if ne $image.MediaType.SubType "gif" }}
-    {{/* https://discourse.gohugo.io/t/image-conversion-without-resizing/32429 */}}
-    {{ $image = $image.Resize (print $image.Width "x" $image.Height " webp") }}
-  {{ end }}
-  <img
-    src="{{ $image.RelPermalink }}"
-    alt="{{ .Text }}"
-    width="{{ $image.Width }}"
-    height="{{ $image.Height }}"
-    {{ with .Title }}title="{{ . }}"{{ end }}
-  />
-</p>
+{{ $image := .Page.Resources.GetMatch .Destination }}
+{{/* https://github.com/gohugoio/hugo/issues/5030 */}}
+{{ if ne $image.MediaType.SubType "gif" }}
+  {{/* https://discourse.gohugo.io/t/image-conversion-without-resizing/32429 */}}
+  {{ $image = $image.Resize (print $image.Width "x" $image.Height " webp") }}
+{{ end }}
+
+{{ if .Title }}
+  <figure>
+    <img
+      src="{{ $image.RelPermalink }}"
+      alt="{{ .Text }}"
+      width="{{ $image.Width }}"
+      height="{{ $image.Height }}"
+      title="{{ .Title }}"
+    />
+    <figcaption>{{ .Title }}</figcaption>
+  </figure>
+{{ else }}
+  <img src="{{ $image.RelPermalink }}" alt="{{ .Text }}" width="{{ $image.Width }}" height="{{ $image.Height }}" />
+{{ end }}
