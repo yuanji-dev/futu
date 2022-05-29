@@ -20,8 +20,10 @@
   "publisher": {
     "@type": "Organization",
     "url": {{ $.Site.BaseURL }},
-    "name": {{ $.Site.Title }},
-    "image": {{ "favicon-32x32.png" | absURL }}
+    {{- with $.Site.Params.ampLogo }}
+    "logo": {{ . | absURL }},
+    {{ end -}}
+    "name": {{ $.Site.Title }}
   },
   "inLanguage": {{ .Site.LanguageCode }}
 }
@@ -53,8 +55,10 @@
   "publisher": {
     "@type": "Organization",
     "url": {{ $.Site.BaseURL }},
-    "name": {{ $.Site.Title }},
-    "image": {{ "favicon-32x32.png" | absURL }}
+    {{- with $.Site.Params.ampLogo }}
+    "logo": {{ . | absURL }},
+    {{ end -}}
+    "name": {{ $.Site.Title }}
   },
   "datePublished": {{ (partial "rfc3339.html" .PublishDate) | jsonify | safeJS }},
   "dateModified": {{ (partial "rfc3339.html" .Lastmod) | jsonify | safeJS }},

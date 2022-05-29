@@ -6,6 +6,7 @@ Yet another minimal hugo theme, built-in styles are modified upon [awsm.css](htt
 
 - [Minimal](https://gtmetrix.com/reports/blog.gimo.me/32YxhVG6/)
 - Multilingual
+- [AMP](https://amp.dev/)
 - …
 
 ## Installation

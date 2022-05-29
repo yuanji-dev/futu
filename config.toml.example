@@ -25,6 +25,7 @@ paginate = 10
 [params]
   keywords = []
   description = ""
+  ampLogo = ""
   # Site creation time
   since = "2016"
   paginate = 10
@@ -42,15 +43,15 @@ paginate = 10
 [mediaTypes."text/plain"]
   suffixes = ["md"]
 
-[outputFormats.MarkDown]
-  mediaType = "text/plain"
+[outputFormats.Markdown]
+  mediaType = "text/markdown"
   isPlainText = true
   isHTML = false
 
 [outputs]
   home = ["HTML", "RSS"]
-  page = ["HTML", "MarkDown"]
-  section = ["HTML", "RSS", "MarkDown"]
+  page = ["HTML", "AMP", "Markdown"]
+  section = ["HTML", "RSS", "Markdown"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
 
