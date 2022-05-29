@@ -17,6 +17,12 @@
     {{ end -}}
     "name": {{ (partial "head/author.html" .).Get "name" }}
   },
+  "publisher": {
+    "@type": "Organization",
+    "url": {{ $.Site.BaseURL }},
+    "name": {{ $.Site.Title }},
+    "image": {{ "favicon-32x32.png" | absURL }}
+  },
   "inLanguage": {{ .Site.LanguageCode }}
 }
 </script>
@@ -26,7 +32,6 @@
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": {{ .Title }},
-  "url": {{ .Permalink }},
   {{- with (partial "head/cover.html" .) }}
   "image": {{ . }},
   {{ end -}}
@@ -36,6 +41,7 @@
   {{- with .Section }}
   "articleSection": {{ . }},
   {{ end -}}
+  "mainEntityOfPage": {{ with  .OutputFormats.Get "html" -}}{{ .Permalink }}{{- end }},
   "wordCount": {{ .WordCount }},
   "author": {
     "@type": "Person",
@@ -43,6 +49,12 @@
     "url": {{ . }},
     {{ end -}}
     "name": {{ (partial "head/author.html" .).Get "name" }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "url": {{ $.Site.BaseURL }},
+    "name": {{ $.Site.Title }},
+    "image": {{ "favicon-32x32.png" | absURL }}
   },
   "datePublished": {{ (partial "rfc3339.html" .PublishDate) | jsonify | safeJS }},
   "dateModified": {{ (partial "rfc3339.html" .Lastmod) | jsonify | safeJS }},
