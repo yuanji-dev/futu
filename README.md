@@ -23,6 +23,10 @@ This theme is used by:
 
 - [Yuanji's Blog](https://blog.gimo.me/)
 
+
+
+## [add hugo contact form](https://fabform.io/a/hugo-contact-form)
+
 ## Feedback
 
 If you have any feedback, please reach out to me at self@gimo.me
