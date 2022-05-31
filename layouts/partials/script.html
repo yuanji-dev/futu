@@ -1,6 +1,8 @@
 {{ template "_internal/google_analytics.html" . }}
-{{ with $.Site.Params.cfBeaconToken -}}
-<!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ . }}"}'></script>
-<!-- End Cloudflare Web Analytics -->
+{{ if hugo.IsProduction }}
+  {{ with $.Site.Params.cfBeaconToken -}}
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ . }}"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+  {{ end }}
 {{ end }}

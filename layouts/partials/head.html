@@ -26,3 +26,8 @@
 {{ $miscCss := resources.Get "css/misc.css" }}
 {{ $styles := slice $main $syntaxCss $miscCss | resources.Concat "styles.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+<style>
+iframe[sandbox]:not([sandbox=""]) {
+  display: none !important;
+}
+</style>

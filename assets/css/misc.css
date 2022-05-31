@@ -1,3 +1,40 @@
-iframe[sandbox]:not([sandbox=""]) {
-  display: none !important;
+.shortcode-card {
+  border-radius: 0.85em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e1e8ed;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 14px;
+  max-width: 100%;
+}
+
+.shortcode-card a {
+  text-decoration: none;
+}
+
+.shortcode-card:hover .shortcode-card-content {
+  background: #F5F8FA;
+}
+
+.shortcode-card-content {
+  padding: 1em;
+}
+
+.shortcode-card-content h2 {
+  margin: 0 0 0.15em;
+  max-height: 1.3em;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shortcode-card-content p {
+  margin: 0;
+  color: #000;
+}
+
+.shortcode-card-content span {
+  color: #8899A6;
 }

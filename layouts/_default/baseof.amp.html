@@ -20,7 +20,8 @@
     <style amp-custom>
     {{ $main := resources.Get "scss/main.scss" | resources.ToCSS }}
     {{ $syntaxCss := resources.Get "css/syntax.css" }}
-    {{ $inlineCss := slice $main $syntaxCss | resources.Concat "inline.css" | minify }}
+    {{ $miscCss := resources.Get "css/misc.css" }}
+    {{ $inlineCss := slice $main $syntaxCss $miscCss | resources.Concat "inline.css" | minify }}
     {{ replace $inlineCss.Content "@charset \"UTF-8\";" "" | safeCSS }}
     </style>
   </head>
