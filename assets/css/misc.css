@@ -6,7 +6,13 @@
   box-sizing: border-box;
   overflow: hidden;
   font-size: 14px;
-  max-width: 100%;
+}
+
+@media (min-width: 65rem) {
+  .shortcode-card {
+    margin-left: 0;
+    max-width: 60%;
+  }
 }
 
 .shortcode-card a {
