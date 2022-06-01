@@ -57,6 +57,19 @@ body, #amp-body {
       margin: 0;
       font-size: .85em;
     }
+
+    > a {
+      display: block;
+      margin: 0;
+      font-size: 1.5em;
+      text-decoration: none;
+      line-height: size('line-height-min');
+      font-weight: 700;
+      color: $primary;
+      &:visited {
+        color: $primary;
+      }
+    }
   }
 
   > footer {
