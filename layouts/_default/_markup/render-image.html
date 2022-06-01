@@ -13,4 +13,4 @@
   height="{{ $image.Height }}"
   {{ with .Title }}title="{{ . }}"{{ end }}
 />
-{{ with .Title }}<span>{{ . }}</span>{{ end }}
+<span>{{ with .Title }}{{ . }}{{ else }}{{ .Text }}{{ end }}</span>

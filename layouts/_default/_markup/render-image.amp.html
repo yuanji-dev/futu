@@ -14,4 +14,4 @@
   {{ with .Title }}title="{{ . }}"{{ end }}
   layout="responsive"
 ></amp-img>
-{{ with .Title }}<span>{{ . }}</span>{{ end }}
+<span>{{ with .Title }}{{ . }}{{ else }}{{ .Text }}{{ end }}</span>
