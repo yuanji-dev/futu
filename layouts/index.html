@@ -4,9 +4,9 @@
   {{- range $paginator.Pages -}}
     <article>
       <header>
-        <h1>
+        <h2>
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </h1>
+        </h2>
         {{- partial "meta.html" . -}}
       </header>
       {{ .Summary | plainify }}

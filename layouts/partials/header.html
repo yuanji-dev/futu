@@ -1,10 +1,20 @@
-<a href={{ "/" | relLangURL }}>{{ .Site.Title }}</a>
+{{ if .IsHome }}
+  <h1>{{ .Site.Title }}</h1>
+{{ else }}
+  <a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+{{ end }}
 <nav>
   <ul>
     {{ $currentPage := . }}
+    {{ $isFirstPage := true }}
+    {{ with $currentPage.Paginator }}
+      {{ if ne .PageNumber 1 }}
+        {{ $isFirstPage = false }}
+      {{ end }}
+    {{ end }}
     {{- range .Site.Menus.main -}}
       <li>
-        {{ if eq (.URL | relLangURL ) $currentPage.RelPermalink -}}
+        {{ if and (eq (.URL | relLangURL ) $currentPage.RelPermalink) $isFirstPage -}}
           {{ .Name }}
         {{ else }}
           <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
