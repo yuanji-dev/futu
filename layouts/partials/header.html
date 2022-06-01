@@ -6,15 +6,9 @@
 <nav>
   <ul>
     {{ $currentPage := . }}
-    {{ $isFirstPage := true }}
-    {{ with $currentPage.Paginator }}
-      {{ if ne .PageNumber 1 }}
-        {{ $isFirstPage = false }}
-      {{ end }}
-    {{ end }}
     {{- range .Site.Menus.main -}}
       <li>
-        {{ if and (eq (.URL | relLangURL ) $currentPage.RelPermalink) $isFirstPage -}}
+        {{ if eq (.URL | relLangURL ) $currentPage.RelPermalink -}}
           {{ .Name }}
         {{ else }}
           <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
