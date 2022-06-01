@@ -143,13 +143,18 @@ p {
     margin-top: -.75em;
   }
 
-  img, picture {
-    margin-bottom: .5em;
-    margin-left: .5em;
+  img, amp-img, picture {
+
+    + span {
+      display: block;
+      text-align: center;
+      opacity: .65;
+      font-size: .85em;
+    }
   }
 
   picture {
-    img {
+    img, amp-img {
       float: none;
       margin: 0;
     }
@@ -359,7 +364,7 @@ abbr {
 
 //- Media
 
-img, picture {
+img, amp-img, picture {
   display: block;
   max-width: 100%;
   height: auto;

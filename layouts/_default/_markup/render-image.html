@@ -5,17 +5,12 @@
   {{ $image = $image.Resize (print $image.Width "x" $image.Height " webp") }}
 {{ end }}
 
-{{ if .Title }}
-  <figure>
-    <img
-      src="{{ $image.RelPermalink }}"
-      alt="{{ .Text }}"
-      width="{{ $image.Width }}"
-      height="{{ $image.Height }}"
-      title="{{ .Title }}"
-    />
-    <figcaption>{{ .Title }}</figcaption>
-  </figure>
-{{ else }}
-  <img src="{{ $image.RelPermalink }}" alt="{{ .Text }}" width="{{ $image.Width }}" height="{{ $image.Height }}" />
-{{ end }}
+{{/* https://github.com/gohugoio/hugo/issues/6748 */}}
+<img
+  src="{{ $image.RelPermalink }}"
+  alt="{{ .Text }}"
+  width="{{ $image.Width }}"
+  height="{{ $image.Height }}"
+  {{ with .Title }}title="{{ . }}"{{ end }}
+/>
+{{ with .Title }}<span>{{ . }}</span>{{ end }}
