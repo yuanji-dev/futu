@@ -688,23 +688,20 @@ hr {
 }
 
 details {
+  background: $invisible;
+  border-radius: 6px;
   margin: 1em 0;
+  padding: 0 1em;
 
   &[open] {
     padding-bottom: .5em;
-    border-bottom: 1px solid $invisible;
   }
 }
 
 summary {
-  display: inline-block;
-  font-weight: 700;
-  border-bottom: 1px dashed;
   cursor: pointer;
-
-  &::-webkit-details-marker {
-    display: none;
-  }
+  font-weight: 700;
+  padding: 0.5em 0;
 }
 
 noscript {
