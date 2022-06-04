@@ -8,9 +8,7 @@
       {{ with .TableOfContents }}
         {{ if ne . "<nav id=\"TableOfContents\"></nav>" }}
           <aside>
-            <header>
-              <h2>{{ i18n "TOC" }}</h2>
-            </header>
+            <p style="font-size: 1.5em; font-weight:700; margin: 0 0 .15em;">{{ i18n "TOC" }}</p>
             {{ . }}
           </aside>
         {{ end }}

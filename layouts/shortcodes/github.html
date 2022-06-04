@@ -1,16 +1,16 @@
 {{ $title := .Get "title" }}
 {{ $detail := .Get "detail" }}
-<article class="shortcode-card">
+<div class="sc-card">
   <a href="https://github.com/{{ $title }}" target="_blank" rel="noopener">
-    <header>
+    <div>
       <img alt="{{ $title }}" src="https://opengraph.githubassets.com/1/{{ $title }}" />
-    </header>
-    <div class="shortcode-card-content">
-      <h2>{{ .Get "title" }}</h2>
+    </div>
+    <div class="sc-card-content">
+      <p class="sc-card-title">{{ .Get "title" }}</p>
       {{ with $detail }}
-      <p>{{ . }}</p>
+      <p class="sc-card-details">{{ . }}</p>
       {{ end }}
       <span>github.com</span>
     </div>
   </a>
-</article>
+</div>

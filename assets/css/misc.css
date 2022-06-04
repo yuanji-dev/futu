@@ -1,4 +1,4 @@
-.shortcode-card {
+.sc-card {
   border-radius: 0.85em;
   border-width: 1px;
   border-style: solid;
@@ -8,19 +8,19 @@
   font-size: 14px;
 }
 
-.shortcode-card a {
+.sc-card a {
   text-decoration: none;
 }
 
-.shortcode-card:hover .shortcode-card-content {
+.sc-card:hover .sc-card-content {
   background: #F5F8FA;
 }
 
-.shortcode-card-content {
+.sc-card-content {
   padding: 1em;
 }
 
-.shortcode-card-content h2 {
+.sc-card-content h2 {
   margin: 0 0 0.15em;
   max-height: 1.3em;
   color: #000;
@@ -29,11 +29,19 @@
   text-overflow: ellipsis;
 }
 
-.shortcode-card-content p {
+.sc-card-content p.sc-card-title {
+  font-weight: 700;
+  font-size: 1.5em;
+  line-height: 1.25;
+  margin: 0 0 0.15em;
+  color: #000;
+}
+
+.sc-card-content p.sc-card-details {
   margin: 0;
   color: #000;
 }
 
-.shortcode-card-content span {
+.sc-card-content span {
   color: #8899A6;
 }
