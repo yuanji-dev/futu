@@ -39,6 +39,4 @@ TOC:
 search:
   other: "Search"
 updated:
-  other: "Updated" 
-buildTime:
-  other: "Build Time %s"
+  other: "Updated"
