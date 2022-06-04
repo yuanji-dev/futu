@@ -1,1 +1,1 @@
-<h{{ .Level }} id="{{ .Anchor | safeURL }}" >{{ .Text | safeHTML }} <a href="#{{ .Anchor | safeURL }}" style="text-decoration: none; font-size: 0.75em; vertical-align: top;">#</a></h{{ .Level }}> 
+<h{{ .Level }}>{{ .Text | safeHTML }}<a aria-label="Link to this section: {{ .Text | safeHTML }}" id="{{ .Anchor | safeURL }}" href="#{{ .Anchor | safeURL }}" ></a></h{{ .Level }}> 
