@@ -180,21 +180,6 @@ aside {
   margin: .5em 0;
   color: $stealthy;
 
-  nav {
-    margin: .5em 0;
-
-    ul {
-      margin: 0;
-      padding-left: 1em;
-    }
-
-    li {
-      display: list-item;
-      margin-right: 1em;
-      margin-bottom: .25em;
-    }
-  }
-
   $shift: 12.5rem; // 200px / 16px
   @media (min-width: size('width-max') + $shift * 2) {
     position: absolute;
@@ -692,6 +677,25 @@ details {
   border-radius: 6px;
   margin: 1em 0;
   padding: 0 1em;
+
+  nav {
+    margin: .5em 0;
+
+    ul {
+      margin: 0;
+      padding-left: 1em;
+    }
+
+    li {
+      display: list-item;
+      margin-right: 1em;
+      margin-bottom: .25em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
 
   &[open] {
     padding-bottom: .5em;
