@@ -19,8 +19,8 @@ categories:
   one: "分类"
   other: "分类"
 archiveCounter:
-  one: "共计 {{ .Count }} 篇文章"
-  other: "共计 {{ .Count }} 篇文章"
+  one: "共计 {{ .Count }} 篇"
+  other: "共计 {{ .Count }} 篇"
 zeroTaxonomyCounter:
   other: "暂无{{ .Taxonomy }}"
 taxonomyCounter:
@@ -40,3 +40,7 @@ search:
   other: "搜索"
 updated:
   other: "更新"
+viewAll:
+  other: "查看全部"
+latest:
+  other: "最新%s"

@@ -19,8 +19,8 @@ categories:
   one: "Category"
   other: "Categories"
 archiveCounter:
-  one: "{{ .Count }} Post In Total"
-  other: "{{ .Count }} Posts In Total"
+  one: "{{ .Count }} Item In Total"
+  other: "{{ .Count }} Items In Total"
 zeroTaxonomyCounter:
   other: "No {{ .Taxonomy }}"
 taxonomyCounter:
@@ -40,3 +40,7 @@ search:
   other: "Search"
 updated:
   other: "Updated"
+viewAll:
+  other: "View all"
+latest:
+  other: "Latest %s"

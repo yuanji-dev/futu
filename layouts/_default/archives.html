@@ -10,7 +10,7 @@
       {{ range .Pages }}
         <p>
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          <span>{{ .PublishDate.Format "01/02" }}</span>
+          <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format "01/02" }}</time></small>
         </p>
       {{ end }}
     {{ end }}
