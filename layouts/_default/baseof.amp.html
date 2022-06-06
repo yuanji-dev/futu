@@ -3,11 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    {{ if .Params.hasIframe -}}
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    {{ end -}}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      {{ block "title" . }}
+      {{- block "title" . }}
         {{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}
-      {{ end }}
+      {{- end }}
     </title>
     <meta name="author" content="{{ (partial "head/author.html" .).Get "name" }}" />
     <meta name="description" content="{{ partial "head/description.html" . }}" />
