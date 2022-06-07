@@ -21,10 +21,10 @@
 {{ with .Site.Params.googleVerification }}
   <meta name="google-site-verification" content="{{ . }}" />
 {{ end }}
-{{ $main := resources.Get "scss/main.scss" | resources.ToCSS }}
-{{ $syntaxCss := resources.Get "css/syntax.css" }}
-{{ $miscCss := resources.Get "css/misc.css" }}
-{{ $styles := slice $main $syntaxCss $miscCss | resources.Concat "styles.css" | minify | fingerprint }}
+{{ $styles := slice }}
+{{ $styles = $styles | append (resources.Get "scss/main.scss" | resources.ToCSS) (resources.Get "scss/custom.scss" | resources.ToCSS) }}
+{{ $styles = $styles | append (resources.Get "css/syntax.css") (resources.Get "css/custom.css")}}
+{{ $styles = $styles | resources.Concat "styles.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 <style>
 iframe[sandbox]:not([sandbox=""]) {

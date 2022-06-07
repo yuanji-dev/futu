@@ -643,11 +643,14 @@ output {
 code, kbd, var, samp {
   font-family: font('mono');
   font-style: normal;
-  background: $background;
-  color: $code;
-  padding: 2px 4px;
-  border-radius: 6px;
-  font-size: .85em;
+
+  &:not([class]) {
+    background: $background;
+    color: $code;
+    padding: 2px 4px;
+    border-radius: 6px;
+    font-size: .85em;
+  }
 }
 
 pre {
