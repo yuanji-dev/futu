@@ -1,0 +1,17 @@
+<header>
+  <h1>{{ .title }}</h1>
+  <span>{{ i18n "archiveCounter" (len .pages) }}</span>
+</header>
+{{ range .pages.GroupByPublishDate "2006" }}
+  {{- if ne .Key "0001" }}
+    <h2>{{ .Key }}</h2>
+    <ul class="pages-list">
+      {{ range .Pages }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format "01/02" }}</time></small>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}
