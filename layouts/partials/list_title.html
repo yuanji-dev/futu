@@ -1,0 +1,5 @@
+{{ $title := .Title }}
+{{ if .Data.Plural }}
+  {{ $title = printf "%s: %s" (i18n .Data.Plural) .Title }}
+{{ end }}
+{{ return $title }}

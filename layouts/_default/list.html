@@ -1,0 +1,22 @@
+{{- define "title" }}{{ partial "list_title.html" . }} | {{ .Site.Title }}{{ end -}}
+{{- define "main" }}
+  <header>
+    <h1>{{ partial "list_title.html" . }}</h1>
+    <span>{{ i18n "archiveCounter" (len .Pages) }}</span>
+  </header>
+  {{- $paginator := .Paginate .Pages (.Site.Params.paginate | default 10) -}}
+  {{ range $paginator.Pages.GroupByPublishDate "2006" }}
+    {{- if ne .Key "0001" }}
+      <h2>{{ .Key }}</h2>
+      <ul class="pages-list">
+        {{ range .Pages }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format "01/02" }}</time></small>
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  {{ end }}
+  {{ partial "paginator.html" $paginator }}
+{{- end }}
