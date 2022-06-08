@@ -1,0 +1,722 @@
+/*!
+ * awsm.css v#{get-version()} (https://igoradamenko.github.io/awsm.css/)
+ * Copyright 2015 Igor Adamenko <mail@igoradamenko.com> (https://igoradamenko.com)
+ * Licensed under MIT (https://github.com/igoradamenko/awsm.css/blob/master/LICENSE.md)
+ */
+
+@import 'variables';
+
+//- Basic
+
+html {
+  font-family: font('sans');
+  font-size: 100%;
+  line-height: size('line-height-max');
+  background: $secondary;
+  color: $primary;
+  -webkit-overflow-scrolling: touch;
+}
+
+//- Layout & fonts
+
+body, #amp-body {
+  margin: 1.2em;
+  font-size: size('font-min');
+
+  @media (min-width: size('width-min')) {
+    // source: https://www.smashingmagazine.com/2016/05/fluid-typography/
+    $font-size-diff: size('font-max') - size('font-min');
+    $width-diff: size('width-max') - size('width-min');
+    $ratio: $font-size-diff / $width-diff;
+
+    font-size: calc(#{size('font-min')} + #{$ratio} * (100vw - #{size('width-min')}));
+  }
+
+  @media (min-width: size('width-max')) {
+    font-size: size('font-max');
+  }
+
+  header,
+  main,
+  footer,
+  article {
+    position: relative;
+    max-width: size('width-max');
+    margin: 0 auto;
+  }
+
+  > header {
+    margin-bottom: 3.5em;
+
+    h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    p {
+      margin: 0;
+      font-size: .85em;
+    }
+
+    > a {
+      display: block;
+      margin: 0;
+      font-size: 1.5em;
+      text-decoration: none;
+      line-height: size('line-height-min');
+      font-weight: 700;
+      color: $primary;
+      &:visited {
+        color: $primary;
+      }
+    }
+  }
+
+  > footer {
+    margin-top: 6em;
+    padding-bottom: 1.5em;
+    text-align: center;
+    font-size: .8rem;
+    color: $stealthy;
+  }
+}
+
+nav {
+  margin: 1em 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: .25em;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    &:visited {
+      color: $link;
+    }
+
+    &:hover {
+      color: $link-hover;
+    }
+  }
+}
+
+ul, ol {
+  margin-top: 0;
+  padding-top: 0;
+  padding-left: 2.5em;
+
+  li {
+    + li {
+      margin-top: .25em;
+    }
+
+    > details {
+      margin: 0;
+    }
+  }
+}
+
+p {
+  margin: 1em 0;
+  hyphens: auto;
+  word-break: break-word;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  + ul, + ol {
+    margin-top: -.75em;
+  }
+
+  img, amp-img, picture {
+
+    + span {
+      display: block;
+      text-align: center;
+      opacity: .65;
+      font-size: .85em;
+    }
+  }
+
+  picture {
+    img, amp-img {
+      float: none;
+      margin: 0;
+    }
+  }
+}
+
+dd {
+  margin-bottom: 1em;
+  margin-left: 0;
+  padding-left: 2.5em;
+}
+
+dt {
+  font-weight: 700;
+}
+
+blockquote {
+  margin: 0;
+  padding-left: 2.5em;
+}
+
+aside {
+  margin: .5em 0;
+  color: $stealthy;
+
+  $shift: 12.5rem; // 200px / 16px
+  @media (min-width: size('width-max') + $shift * 2) {
+    position: absolute;
+    right: -$shift;
+    width: $shift * .75;
+    max-width: $shift * .75;
+    margin: 0;
+    padding-left: .5em;
+    font-size: .8em;
+    border-left: 1px solid $invisible;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+section {
+  + section {
+    margin-top: 2em;
+  }
+}
+
+//- Typography
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1.25em 0 0;
+  line-height: size('line-height-min');
+
+  &:hover, &:focus {
+    > a[href^='#'][id]:empty {
+      opacity: 1;
+    }
+  }
+
+  + p, + details {
+    margin-top: .5em;
+  }
+
+  > a[href^='#'][id]:empty {
+    position: absolute;
+    left: -.65em;
+    opacity: 0;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 1;
+    color: $stealthy;
+
+    @media (min-width: size('width-max')) {
+      left: -.8em;
+    }
+
+    &:target, &:hover, &:focus {
+      opacity: 1;
+      box-shadow: none;
+      color: $primary;
+    }
+
+    &:target:focus { // stylelint-disable-line selector-max-specificity
+      outline: none;
+    }
+
+    &::before {
+      content: '§\a0';
+    }
+  }
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1.125em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  margin-top: 1em;
+  font-size: .875em;
+  color: $stealthy;
+}
+
+article {
+  + article {
+    margin-top: 4em;
+  }
+
+  header {
+    p {
+      font-size: .6em;
+      color: $stealthy;
+
+      + h1, + h2 {
+        margin-top: -.25em;
+      }
+    }
+
+    h1, h2 {
+      + p {
+        margin-top: .25em;
+      }
+
+      a {
+        color: $primary;
+
+        &:visited {
+          color: $primary;
+
+          &:hover {
+            color: $link-hover;
+          }
+        }
+      }
+    }
+  }
+
+  > footer {
+    margin-top: 1.5em;
+    font-size: .85em;
+  }
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+
+  &:visited {
+    color: $link;
+  }
+
+  &:hover,
+  &:active {
+    outline-width: 0;
+  }
+
+  &:hover {
+    color: $link-hover;
+    text-decoration: underline;
+  }
+
+  abbr {
+    font-size: 1em; // because when it set to .9em inside link in chrome it makes underlining thinner
+  }
+}
+
+abbr {
+  margin-right: -.075em;
+  text-decoration: none;
+  hyphens: none;
+  letter-spacing: .075em;
+  font-size: .9em;
+}
+
+//- Media
+
+img, amp-img, picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+audio, video {
+  width: 100%;
+  max-width: 100%;
+}
+
+figure {
+  margin: 1em 0 .5em;
+  padding: 0;
+
+  + p {
+    margin-top: .5em;
+  }
+
+  figcaption {
+    opacity: .65;
+    font-size: .85em;
+  }
+}
+
+//- Tables
+
+table {
+  $scrollBorderColor: rgba($primary, .15);
+
+  display: inline-block;
+  border-spacing: 0;
+  border-collapse: collapse;
+  overflow-x: auto;
+  max-width: 100%;
+  text-align: left;
+  vertical-align: top;
+  background:
+    linear-gradient($scrollBorderColor 0%, $scrollBorderColor 100%) 0 0,
+    linear-gradient($scrollBorderColor 0%, $scrollBorderColor 100%) 100% 0;
+  background-attachment: scroll, scroll;
+  background-size: 1px 100%, 1px 100%;
+  background-repeat: no-repeat, no-repeat;
+
+  caption {
+    font-size: .9em;
+    background: $secondary;
+  }
+
+  td, th {
+    padding: .35em .75em;
+    vertical-align: top;
+    font-size: .9em;
+    border: 1px solid $invisible;
+    border-top: 0;
+    border-left: 0;
+
+    &:first-child {
+      padding-left: 0;
+      background-image: linear-gradient(to right, rgba($secondary, 1) 50%, rgba($secondary, 0) 100%);
+      background-size: 2px 100%;
+      background-repeat: no-repeat;
+    }
+
+    &:last-child {
+      padding-right: 0;
+      border-right: 0;
+      background-image: linear-gradient(to left, rgba($secondary, 1) 50%, rgba($secondary, 0) 100%);
+      background-position: 100% 0;
+      background-size: 2px 100%;
+      background-repeat: no-repeat;
+    }
+
+    &:only-child {
+      background-image: linear-gradient(to right, rgba($secondary, 1) 50%, rgba($secondary, 0) 100%), linear-gradient(to left, rgba($secondary, 1) 50%, rgba($secondary, 0) 100%);
+      background-position: 0 0, 100% 0;
+      background-size: 2px 100%, 2px 100%;
+      background-repeat: no-repeat, no-repeat;
+    }
+  }
+
+  th {
+    line-height: size('line-height-min');
+  }
+}
+
+//- Forms
+
+form {
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: size('width-max')) {
+    max-width: 80%;
+  }
+
+  select, label {
+    display: block;
+  }
+
+  label {
+    &:not(:first-child) {
+      margin-top: 1em;
+    }
+  }
+
+  p {
+    label {
+      display: inline;
+
+      + label {
+        margin-left: 1em;
+      }
+    }
+  }
+
+  legend:first-child + label {
+    margin-top: 0;
+  }
+
+  select, input[type], textarea {
+    margin-bottom: 1em;
+  }
+
+  input {
+    &[type=checkbox],
+    &[type=radio] {
+      margin-bottom: 0;
+    }
+  }
+}
+
+fieldset {
+  margin: 0;
+  padding: .5em 1em;
+  border: 1px solid $stealthy;
+}
+
+legend {
+  color: $stealthy;
+}
+
+@mixin inputs-buttons {
+  outline: none;
+  box-sizing: border-box;
+  height: 2em;
+  margin: 0;
+  padding: calc(.25em - 1px) .5em;
+  font-family: inherit;
+  font-size: 1em;
+  border: 1px solid $stealthy;
+  border-radius: 2px;
+  background: $secondary;
+  color: $primary;
+
+  &:focus {
+    border: 1px solid $primary;
+  }
+}
+
+@mixin inputs {
+  @include inputs-buttons;
+
+  display: block;
+  width: 100%;
+  line-height: calc(2em - 1px * 2 - (.25em - 1px) * 2); // height - 2 * border - 2 * paddingHrz
+  appearance: none; // prevents strange appearances, such as date selector-like in ios safari
+
+  @include placeholder {
+    color: $stealthy;
+  }
+}
+
+@mixin buttons {
+  @include inputs-buttons;
+
+  display: inline-block;
+  width: auto;
+  background: $invisible;
+  color: $primary;
+  cursor: pointer;
+
+  &:not([disabled]):hover {
+    border: 1px solid $primary;
+  }
+
+  &:active {
+    background-color: $stealthy;
+  }
+
+  &[disabled] {
+    color: $stealthy;
+    cursor: not-allowed;
+  }
+}
+
+button {
+  @include buttons;
+}
+
+select {
+  @include buttons;
+
+  @mixin select-background-image($color) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Cpath fill='rgb(#{red($color)}, #{green($color)}, #{blue($color)})' fill-rule='nonzero' d='M1.5 2L3 0H0z'/%3E%3C/svg%3E");
+  }
+
+  padding-right: 1.2em;
+  background-position: top 55% right .35em;
+  background-size: .5em;
+  background-repeat: no-repeat;
+  appearance: none;
+
+  @include select-background-image($stealthy);
+
+  &:not([disabled]) {
+    &:focus, &:hover {
+      @include select-background-image($primary);
+    }
+  }
+}
+
+input {
+  &[type=text],
+  &[type=password],
+  &[type^=date],
+  &[type=email],
+  &[type=number],
+  &[type=search],
+  &[type=tel],
+  &[type=time],
+  &[type=month],
+  &[type=week],
+  &[type=url] {
+    @include inputs;
+  }
+
+  &[type=submit],
+  &[type=button],
+  &[type=reset] {
+    @include buttons;
+
+    appearance: none;
+  }
+
+  &[type=color] {
+    @include inputs;
+
+    width: 6em;
+
+    &:hover {
+      border: 1px solid $primary;
+    }
+  }
+
+  &[type=file] {
+    @include buttons;
+
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: .75em .5em;
+    font-size: 12px; // otherwise browsers change only text size but not button size
+    line-height: 1;
+  }
+
+  &[type=checkbox],
+  &[type=radio] {
+    margin: -.2em .75em 0 0;
+    vertical-align: middle;
+  }
+}
+
+textarea {
+  @include inputs;
+
+  height: 4.5em;
+  resize: vertical;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+output {
+  display: block;
+}
+
+//- Code
+
+code, kbd, var, samp {
+  font-family: font('mono');
+  font-style: normal;
+
+  &:not([class]) {
+    background: $background;
+    color: $code;
+    padding: 2px 4px;
+    border-radius: 6px;
+    font-size: .85em;
+  }
+}
+
+pre {
+  overflow-x: auto;
+  font-size: .8em;
+  border-radius: 6px;
+
+  > code {
+    display: inline-block;
+    overflow-x: visible;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 10px;
+    font-size: 1em;
+  }
+}
+
+//- Misc.
+
+hr {
+  height: 1px;
+  margin: 2em 0;
+  border: 0;
+  background: $invisible;
+}
+
+details {
+  background: $invisible;
+  border-radius: 6px;
+  margin: 1em 0;
+  padding: 0 1em;
+
+  nav {
+    margin: .5em 0;
+
+    ul {
+      margin: 0;
+      padding-left: 1em;
+    }
+
+    li {
+      display: list-item;
+      margin-right: 1em;
+      margin-bottom: .25em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &[open] {
+    padding-bottom: .5em;
+  }
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.5em 0;
+}
+
+noscript {
+  color: $alarm;
+}
+
+::selection {
+  background: rgba($selection-base, .25);
+}

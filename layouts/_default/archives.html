@@ -7,12 +7,14 @@
   {{ range $pages.GroupByPublishDate "2006" }}
     {{- if ne .Key "0001" }}
       <h2>{{ .Key }}</h2>
-      {{ range .Pages }}
-        <p>
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format "01/02" }}</time></small>
-        </p>
-      {{ end }}
+      <ul class="pages-list">
+        {{ range .Pages }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format "01/02" }}</time></small>
+          </li>
+        {{ end }}
+      </ul>
     {{ end }}
   {{ end }}
 {{- end }}

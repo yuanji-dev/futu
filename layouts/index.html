@@ -1,19 +1,21 @@
 {{ define "main" }}
   {{ range site.Params.mainSections }}
-  <article>
-    <header>
-      {{ $section := site.GetPage "section" . }}
-      <h2>{{ printf (i18n "latest") $section.Title }}</h2>
-    </header>
-    {{ range first (site.Params.paginate | default 10) (where site.RegularPages.ByPublishDate.Reverse "Section" .) }}
-    <p>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format (site.Params.dateFormatToUse | default "2006-01-02") }}</time></small>
-    </p>
-    {{ end }}
-    <p>
-      <a href="{{ $section.RelPermalink }}">{{ i18n "viewAll" }} →</a>
-    </p>
-  </article>
+    <article class="home-section">
+      <header>
+        {{ $section := site.GetPage "section" . }}
+        <h2>{{ printf (i18n "latest") $section.Title }}</h2>
+      </header>
+      <ul class="pages-list">
+        {{ range first (site.Params.homePaginate | default 5) (where site.RegularPages.ByPublishDate.Reverse "Section" .) }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format (site.Params.dateFormatToUse | default "2006-01-02") }}</time></small>
+          </li>
+        {{ end }}
+        <li>
+          <a href="{{ $section.RelPermalink }}">{{ i18n "viewAll" }} →</a>
+        </li>
+      </ul>
+    </article>
   {{ end }}
 {{ end }}
