@@ -1,19 +1,23 @@
 {{ define "main" }}
+  {{ $sectionSlice := slice }}
   {{ range site.Params.mainSections }}
+    {{ $section := site.GetPage "section" . }}
+    {{ $sectionSlice = $sectionSlice | append (dict "section" $section "date" (index $section.RegularPages.ByPublishDate.Reverse 0).PublishDate) }}
+  {{ end }}
+  {{ range sort $sectionSlice "date" "desc" }}
     <article class="home-section">
       <header>
-        {{ $section := site.GetPage "section" . }}
-        <h2>{{ printf (i18n "latest") $section.Title }}</h2>
+        <h2>{{ printf (i18n "latest") .section.Title }}</h2>
       </header>
       <ul class="pages-list">
-        {{ range first (site.Params.homePaginate | default 5) (where site.RegularPages.ByPublishDate.Reverse "Section" .) }}
+        {{ range first (site.Params.homePaginate | default 5) .section.RegularPages.ByPublishDate.Reverse }}
           <li>
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format (site.Params.dateFormatToUse | default "2006-01-02") }}</time></small>
           </li>
         {{ end }}
         <li>
-          <a href="{{ $section.RelPermalink }}">{{ i18n "viewAll" }} →</a>
+          <a href="{{ .section.RelPermalink }}">{{ i18n "viewAll" }} →</a>
         </li>
       </ul>
     </article>
