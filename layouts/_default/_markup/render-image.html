@@ -11,6 +11,7 @@
   alt="{{ .Text }}"
   width="{{ $image.Width }}"
   height="{{ $image.Height }}"
+  loading="lazy"
   {{ with .Title }}title="{{ . }}"{{ end }}
 />
 <span>{{ with .Title }}{{ . }}{{ else }}{{ .Text }}{{ end }}</span>
