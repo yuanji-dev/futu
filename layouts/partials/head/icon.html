@@ -2,7 +2,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}" />
 <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}" />
 {{ with .Params.icon }}
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3Ctext%20x=%2250%25%22%20y=%2250%25%22%20style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22%3E{{ . }}%3C/text%3E%3C/svg%3E">
+{{ $href := print "data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3Ctext%20x=%2250%25%22%20y=%2250%25%22%20style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22%3E" .  "%3C/text%3E%3C/svg%3E" }}
+<link rel="icon" {{ printf "href=%q" $href | safeHTMLAttr }} />
 {{ end }}
 <link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
 <link rel="icon" sizes="16x16" href="{{ "favicon.ico" | relURL }}" />
