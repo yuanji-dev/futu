@@ -1,8 +1,9 @@
 {{ if .IsHome }}
-  <h1>{{ .Site.Title }}</h1>
+  <h1 class="header__verification">{{ .Site.Title }}</h1>
 {{ else }}
-  <a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+  <a class="header__verification" href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
 {{ end }}
+<p class="header__official">Official</p>
 <nav>
   <ul>
     {{ $currentPage := . }}
