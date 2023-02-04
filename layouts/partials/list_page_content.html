@@ -5,6 +5,7 @@
 {{ range .pages.GroupByPublishDate "2006" }}
   {{- if ne .Key "0001" }}
     <h2>{{ .Key }}</h2>
+    <span>{{ i18n "archiveCounter" (len .Pages) }}</span>
     <ul class="pages-list">
       {{ range .Pages }}
         <li>
