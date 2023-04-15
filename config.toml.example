@@ -34,6 +34,7 @@ paginate = 10
   # Whether display TOC or not.
   toc = true
   googleVerification = ""
+  enableEmojiZoomJS = true
 
 [params.git]
   repo = "https://github.com/masakichi/futu"

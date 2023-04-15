@@ -26,6 +26,9 @@
 {{ $styles = $styles | append (resources.Get "css/syntax.css") (resources.Get "css/custom.css")}}
 {{ $styles = $styles | resources.Concat "styles.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{ if .Site.Params.enableZoomJS }}
+<link href="/zoom.js/dist/zoom.css" rel="stylesheet" />
+{{ end }}
 <style>
 iframe[sandbox]:not([sandbox=""]) {
   display: none !important;
