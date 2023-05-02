@@ -14,4 +14,4 @@
   loading="lazy"
   {{ with .Title }}title="{{ . }}"{{ end }}
 />
-<span>{{ with .Title }}{{ . }}{{ else }}{{ .Text }}{{ end }}</span>
+<span>{{ with .Title }}{{ . | safeHTML }}{{ else }}{{ .Text | safeHTML }}{{ end }}</span>
