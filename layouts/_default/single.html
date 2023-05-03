@@ -7,7 +7,7 @@
     {{ if (.Params.toc | default (.Site.Params.toc | default false )) }}
       {{ with .TableOfContents }}
         {{ if ne . "<nav id=\"TableOfContents\"></nav>" }}
-          <details>
+          <details id="TableOfContentsWrapper">
             <summary>{{ i18n "TOC" }}</summary>
             {{ . }}
           </details>
