@@ -5,13 +5,26 @@
   {{ $image = $image.Resize (print $image.Width "x" $image.Height " webp") }}
 {{ end }}
 
-{{/* https://github.com/gohugoio/hugo/issues/6748 */}}
-<amp-img
-  src="{{ $image.RelPermalink }}"
-  alt="{{ .Text }}"
-  width="{{ $image.Width }}"
-  height="{{ $image.Height }}"
-  {{ with .Title }}title="{{ . }}"{{ end }}
-  layout="responsive"
-></amp-img>
-<span>{{ with .Title }}{{ . }}{{ else }}{{ .Text }}{{ end }}</span>
+{{ if .IsBlock }}
+  <figure>
+    <amp-img
+      src="{{ $image.RelPermalink }}"
+      alt="{{ .Text }}"
+      width="{{ $image.Width }}"
+      height="{{ $image.Height }}"
+      {{ with .Title }}title="{{ . }}"{{ end }}
+      layout="responsive"
+    ></amp-img>
+    <figcaption>{{ with .Title }}{{ . | safeHTML }}{{ else }}{{ .Text | safeHTML }}{{ end }}</figcaption>
+  </figure>
+{{ else }}
+  <amp-img
+    src="{{ $image.RelPermalink }}"
+    alt="{{ .Text }}"
+    width="{{ $image.Width }}"
+    height="{{ $image.Height }}"
+    {{ with .Title }}title="{{ . }}"{{ end }}
+    layout="responsive"
+  ></amp-img>
+  <span>{{ with .Title }}{{ . }}{{ else }}{{ .Text }}{{ end }}</span>
+{{ end }}

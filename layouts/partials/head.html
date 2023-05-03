@@ -9,6 +9,9 @@
 {{ partial "head/icon.html" . }}
 {{ template "_internal/opengraph.html" . }}
 {{ template "_internal/twitter_cards.html" . }}
+{{- with .Site.Params.telegramChannel -}}
+  <meta name="telegram:channel" content="@{{ . }}"/>
+{{ end -}}
 {{ partial "schema_jsonld.html" . }}
 {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}

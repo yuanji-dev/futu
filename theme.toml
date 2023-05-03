@@ -8,7 +8,7 @@ description = "Yet another minimal hugo theme, built-in styles are modified upon
 homepage = "https://github.com/masakichi/futu"
 tags = ["blog", "minimal"]
 features = []
-min_version = "0.89.0"
+min_version = "0.108.0"
 
 [author]
   name = "Yuanji"
