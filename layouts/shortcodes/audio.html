@@ -1,0 +1,6 @@
+<figure>
+  <audio controls preload="{{ .Get "preload" | default "metadata" }}">
+    {{ with .Get "src" }}<source src="{{ . | relURL }}" {{ with $.Get "type" }}type="{{ . }}" {{ end }}>{{ end }}
+  </audio>
+  {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
