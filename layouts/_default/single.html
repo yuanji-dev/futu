@@ -16,13 +16,13 @@
     {{ end }}
     {{ .Content }}
     {{ $currentOutputFormat := (partial "current_output_format.html" .) }}
-    {{ if eq $currentOutputFormat.Name "amp" }}
-    {{ else }}
-      {{- partial "disqus.html" . -}}
-    {{ end }}
     {{ if (.Params.enableRelated | default (.Site.Params.enableRelated | default false )) }}
       <hr>
       {{- partial "related.html" . -}}
+    {{ end }}
+    {{ if eq $currentOutputFormat.Name "amp" }}
+    {{ else }}
+      {{- partial "disqus.html" . -}}
     {{ end }}
   </article>
 {{- end }}
