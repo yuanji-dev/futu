@@ -14,9 +14,6 @@ paginate = 10
 [imaging]
   quality = 75
 
-[author]
-  name = "Someone"
-
 [sitemap]
   changefreq = "weekly"
   priority = 0.5
@@ -40,6 +37,9 @@ paginate = 10
 [params.git]
   repo = "https://github.com/masakichi/futu"
   branch = "main"
+
+[params.author]
+  name = "Someone"
 
 [mediaTypes]
 [mediaTypes."text/plain"]

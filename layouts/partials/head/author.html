@@ -5,8 +5,8 @@
     {{ $author.Set "url" (. | safeHTML) }}
   {{ end }}
 {{ else }}
-  {{ $author.Set "name" (.Site.Author.name | safeHTML) }}
-  {{ with $.Site.Author.url }}
+  {{ $author.Set "name" (.Site.Params.author.name | safeHTML) }}
+  {{ with $.Site.Params.author.url }}
     {{ $author.Set "url" (. | safeHTML) }}
   {{ else }}
     {{ $author.Set "url" $.Site.BaseURL }}
