@@ -44,3 +44,5 @@ viewAll:
   other: "查看全部"
 latest:
   other: "最新%s"
+seeAlso:
+  other: "猜你喜欢"

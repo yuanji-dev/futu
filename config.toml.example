@@ -33,6 +33,7 @@ paginate = 10
   dateFormatToUse = "2006/01/02"
   # Whether display TOC or not.
   toc = true
+  enableRelated = true
   googleVerification = ""
   enableEmojiZoomJS = true
 

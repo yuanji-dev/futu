@@ -1,0 +1,12 @@
+{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{ with $related }}
+<h2>{{ i18n "seeAlso" }}</h2>
+<ul class="pages-list">
+ {{ range . }}
+ <li>
+   <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+   <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format (site.Params.dateFormatToUse | default "2006-01-02") }}</time></small>
+ </li>
+ {{ end }}
+</ul>
+{{ end }}
