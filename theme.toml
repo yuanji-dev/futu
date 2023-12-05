@@ -4,7 +4,7 @@
 name = "Futu"
 license = "MIT"
 licenselink = "https://github.com/masakichi/futu/blob/master/LICENSE"
-description = "Yet another minimal hugo theme, built-in styles are modified upon awsm.css."
+description = "Yet another minimal hugo theme, built-in styles are modified upon water.css."
 homepage = "https://github.com/masakichi/futu"
 tags = ["blog", "minimal"]
 features = []

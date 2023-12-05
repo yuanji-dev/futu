@@ -1,6 +1,6 @@
 # Futu
 
-Yet another minimal hugo theme, built-in styles are modified upon [awsm.css](https://github.com/igoradamenko/awsm.css).
+Yet another minimal hugo theme, built-in styles are modified upon [water.css](https://github.com/kognise/water.css).
 
 ## Features
 
