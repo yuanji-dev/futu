@@ -29,6 +29,13 @@ ul.pages-list {
 }
 
 .header__verification {
+  font-size: 1.5em;
+  color: var(--text-bright);
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 24px;
+  display: block;
+
   &::after {
     content: "";
     display: inline-block;
@@ -42,6 +49,7 @@ ul.pages-list {
 }
 
 .header__official {
+  margin-top: 0;
   color: #536471;
 
   &::before {
