@@ -28,6 +28,12 @@ body {
     font-size: 0.8em;
   }
 
+  audio,
+  video {
+    width: 100%;
+    max-width: 100%;
+  }
+
   figure {
     margin: 1em 0 0.5em;
     padding: 0;
