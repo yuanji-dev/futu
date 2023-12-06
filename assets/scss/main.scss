@@ -1,7 +1,18 @@
 @import "water/builds/water";
 
-body > header > nav {
-  ul {
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", STHeiti, "Microsoft YaHei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+  code,
+  kbd,
+  var,
+  samp {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    font-style: normal;
+  }
+
+  > header > nav ul {
     padding: 0;
 
     li {
@@ -10,38 +21,64 @@ body > header > nav {
       margin-bottom: 0.25em;
     }
   }
-}
 
-footer {
-  border-top: medium none currentcolor;
-  text-align: center;
-  font-size: 0.8em;
-}
-
-figure {
-  margin: 1em 0 0.5em;
-  padding: 0;
-
-  + p {
-    margin-top: 0.5em;
-  }
-
-  figcaption {
-    opacity: 0.65;
-    font-size: 0.85em;
+  footer {
+    border-top: medium none currentcolor;
     text-align: center;
+    font-size: 0.8em;
   }
-}
 
-hr {
-  height: 1px;
-  margin: 2em 0;
-  border: 0;
-  background: var(--border);
-}
+  figure {
+    margin: 1em 0 0.5em;
+    padding: 0;
 
-details {
-  overflow: visible;
+    + p {
+      margin-top: 0.5em;
+    }
+
+    figcaption {
+      opacity: 0.65;
+      font-size: 0.85em;
+      text-align: center;
+    }
+  }
+
+  hr {
+    height: 1px;
+    margin: 2em 0;
+    border: 0;
+    background: var(--border);
+  }
+
+  details {
+    display: block;
+    overflow: visible;
+    background-color: var(--background);
+    padding: 0 1em;
+
+    nav {
+      margin: 0.5em 0;
+
+      ul {
+        margin: 0;
+        padding-left: 1em;
+
+        li {
+          display: list-item;
+          margin-right: 1em;
+          margin-bottom: 0.25em;
+        }
+      }
+    }
+
+    summary {
+      margin: 0;
+    }
+
+    &[open] {
+      padding: 0 1em 1em;
+    }
+  }
 }
 
 article.home-section {
