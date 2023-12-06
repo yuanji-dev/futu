@@ -12,6 +12,12 @@ body > header > nav {
   }
 }
 
+footer {
+  border-top: medium none currentcolor;
+  text-align: center;
+  font-size: 0.8em;
+}
+
 article.home-section {
   + article.home-section {
     margin-top: 2em;
