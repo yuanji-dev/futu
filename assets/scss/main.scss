@@ -1,5 +1,17 @@
 @import "water/builds/water";
 
+body > header > nav {
+  ul {
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 1em;
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
 article.home-section {
   + article.home-section {
     margin-top: 2em;
@@ -28,7 +40,7 @@ ul.pages-list {
   }
 }
 
-.header__verification {
+.header-verification {
   font-size: 1.5em;
   color: var(--text-bright);
   font-weight: 600;
@@ -48,7 +60,7 @@ ul.pages-list {
   }
 }
 
-.header__official {
+.header-official {
   margin-top: 0;
   color: #536471;
 
