@@ -115,6 +115,17 @@ ul.pages-list {
   }
 }
 
+table {
+  display: block;
+  white-space: nowrap;
+  border-spacing: 0;
+  border-collapse: collapse;
+  overflow-x: auto;
+  max-width: 100%;
+  text-align: left;
+  vertical-align: top;
+}
+
 .header-verification {
   font-size: 1.5em;
   color: var(--text-bright);
