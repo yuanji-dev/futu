@@ -46,3 +46,5 @@ latest:
   other: "最新%s"
 seeAlso:
   other: "猜你喜欢"
+verified:
+  other: "这个博客已通过认证"

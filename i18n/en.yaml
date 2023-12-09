@@ -46,3 +46,5 @@ latest:
   other: "Latest %s"
 seeAlso:
   other: "See also"
+verified:
+  other: "This blog is verified"

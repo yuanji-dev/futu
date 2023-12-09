@@ -1,25 +1,31 @@
+{{ $mainJS := resources.Get "js/main.js" | minify | fingerprint }}
+<script src="{{ $mainJS.RelPermalink }}"></script>
 {{ template "_internal/google_analytics.html" . }}
 {{ if hugo.IsProduction }}
   {{ with $.Site.Params.cfBeaconToken -}}
     <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ . }}"}'></script>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "{{ . }}"}'
+    ></script>
     <!-- End Cloudflare Web Analytics -->
   {{ end }}
 {{ end }}
 {{ if .Site.Params.enableZoomJS }}
-<script type="module">
-  import { zoom } from "/zoom.js/dist/index.js";
+  <script type="module">
+    import { zoom } from "/zoom.js/dist/index.js";
 
-  function setup(img) {
-    img.classList.add("zoom-cursor");
-    img.addEventListener("click", () => {
-      zoom(img);
+    function setup(img) {
+      img.classList.add("zoom-cursor");
+      img.addEventListener("click", () => {
+        zoom(img);
+      });
+    }
+
+    const imgs = [...document.querySelectorAll("main p img, figure img")];
+    imgs.forEach((img) => {
+      setup(img);
     });
-  }
-
-  const imgs = [...document.querySelectorAll("main p img, figure img")];
-  imgs.forEach((img) => {
-    setup(img);
-  });
-</script>
+  </script>
 {{ end }}
