@@ -1,0 +1,6 @@
+<figure>
+  <video controls preload="{{ .Get "preload" | default "metadata" }}">
+    {{ with .Get "src" }}<source src="{{ . }}" {{ with $.Get "type" }}type="{{ . }}"{{ end }} />{{ end }}
+  </video>
+  {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
