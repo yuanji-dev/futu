@@ -4,6 +4,17 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, "PingFang SC",
     "Hiragino Sans GB", STHeiti, "Microsoft YaHei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 
+  table {
+    display: block;
+    white-space: nowrap;
+    border-spacing: 0;
+    border-collapse: collapse;
+    overflow-x: auto;
+    max-width: 100%;
+    text-align: left;
+    vertical-align: top;
+  }
+
   code,
   kbd,
   var,
@@ -87,6 +98,7 @@ body {
   }
 }
 
+// article list styles
 article.home-section {
   + article.home-section {
     margin-top: 2em;
@@ -115,17 +127,7 @@ ul.pages-list {
   }
 }
 
-table {
-  display: block;
-  white-space: nowrap;
-  border-spacing: 0;
-  border-collapse: collapse;
-  overflow-x: auto;
-  max-width: 100%;
-  text-align: left;
-  vertical-align: top;
-}
-
+// header styles
 .header-verification {
   font-size: 1.5em;
   color: var(--text-bright);
@@ -155,6 +157,7 @@ table {
   }
 }
 
+// dark mode styles
 #mode-switch {
   vertical-align: -10%;
   padding: 0;
@@ -169,4 +172,17 @@ html.dark-mode #moon {
 
 html:not(.dark-mode) #sun {
   display: none;
+}
+
+// other cleanup for water.css
+a[href^="mailto\:"]::before {
+  content: "";
+}
+
+a[href^="tel\:"]::before {
+  content: "";
+}
+
+a[href^="sms\:"]::before {
+  content: "";
 }
