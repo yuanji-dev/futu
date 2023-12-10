@@ -10,7 +10,7 @@
 {{ template "_internal/opengraph.html" . }}
 {{ template "_internal/twitter_cards.html" . }}
 {{- with .Site.Params.telegramChannel -}}
-  <meta name="telegram:channel" content="@{{ . }}"/>
+  <meta name="telegram:channel" content="@{{ . }}" />
 {{ end -}}
 {{ partial "schema_jsonld.html" . }}
 {{ range .AlternativeOutputFormats -}}
@@ -24,16 +24,16 @@
 {{ with .Site.Params.googleVerification }}
   <meta name="google-site-verification" content="{{ . }}" />
 {{ end }}
+{{ if .Site.Params.enableZoomJS }}
+  <link href="/zoom.js/dist/zoom.css" rel="stylesheet" />
+{{ end }}
 {{ $styles := slice }}
 {{ $styles = $styles | append (resources.Get "scss/main.scss" | resources.ToCSS) (resources.Get "scss/custom.scss" | resources.ToCSS) }}
-{{ $styles = $styles | append (resources.Get "css/syntax.css") (resources.Get "css/custom.css")}}
+{{ $styles = $styles | append (resources.Get "css/syntax.css") (resources.Get "css/custom.css") }}
 {{ $styles = $styles | resources.Concat "styles.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
-{{ if .Site.Params.enableZoomJS }}
-<link href="/zoom.js/dist/zoom.css" rel="stylesheet" />
-{{ end }}
 <style>
-iframe[sandbox]:not([sandbox=""]) {
-  display: none !important;
-}
+  iframe[sandbox]:not([sandbox=""]) {
+    display: none !important;
+  }
 </style>

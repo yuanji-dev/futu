@@ -186,3 +186,8 @@ a[href^="tel\:"]::before {
 a[href^="sms\:"]::before {
   content: "";
 }
+
+// fix zoom.js overlay in dark mode
+.zoom-overlay {
+  background: var(--background-body);
+}
