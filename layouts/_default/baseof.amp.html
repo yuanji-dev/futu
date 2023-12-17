@@ -29,13 +29,11 @@
     </style>
   </head>
   <body>
-    <div id="amp-body">
-      <header>{{- partial "header.html" . -}}</header>
-      <main>
-        {{- block "main" . }}
-        {{- end }}
-      </main>
-      <footer>{{- partial "footer.html" . -}}</footer>
-    </div>
+    <header>{{- partial "header.html" . -}}</header>
+    <main>
+      {{- block "main" . }}
+      {{- end }}
+    </main>
+    <footer>{{- partial "footer.html" . -}}</footer>
   </body>
 </html>
