@@ -10,7 +10,8 @@
         <h2>{{ printf (i18n "latest") .section.Title }}</h2>
       </header>
       <ul class="pages-list">
-        {{ range first (site.Params.homePaginate | default 5) .section.RegularPages.ByPublishDate.Reverse }}
+        {{- $pages := where .section.RegularPages "Draft" "eq" false }}
+        {{ range first (site.Params.homePaginate | default 5) $pages.ByPublishDate.Reverse }}
           <li>
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             <small><time datetime="{{ partial "rfc3339.html" .PublishDate }}">{{ .PublishDate.Format (site.Params.dateFormatToUse | default "2006-01-02") }}</time></small>

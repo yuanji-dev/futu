@@ -1,5 +1,6 @@
 # {{ .Site.Title }}
 {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages := where $pages "Draft" "eq" false }}
 {{ i18n "archiveCounter" (len $pages) }}
 
 {{ range $pages.GroupByPublishDate "2006" }}

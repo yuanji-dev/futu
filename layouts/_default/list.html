@@ -1,7 +1,8 @@
 {{- define "title" }}{{ partial "list_page_title.html" . }} | {{ .Site.Title }}{{ end -}}
 {{- define "main" }}
   {{ $title := partial "list_page_title.html" . }}
-  {{ $paginator := .Paginate .Pages (.Site.Params.paginate | default 10) }}
+  {{ $pages := where .Pages "Draft" "eq" false }}
+  {{ $paginator := .Paginate $pages (.Site.Params.paginate | default 10) }}
   {{ partial "list_page_content.html" (dict "title" $title "pages" $paginator.Pages ) }}
   {{ partial "paginator.html" $paginator }}
 {{- end }}
