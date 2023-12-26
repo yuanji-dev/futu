@@ -3,6 +3,6 @@
   {{ $title := partial "list_page_title.html" . }}
   {{ $pages := where .Pages "Draft" "eq" false }}
   {{ $paginator := .Paginate $pages (.Site.Params.paginate | default 10) }}
-  {{ partial "list_page_content.html" (dict "title" $title "pages" $paginator.Pages ) }}
+  {{ partial "list_page_content.html" (dict "title" $title "pages" $paginator.Pages "total" (len $pages) ) }}
   {{ partial "paginator.html" $paginator }}
 {{- end }}

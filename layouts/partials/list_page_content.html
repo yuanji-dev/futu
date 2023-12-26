@@ -1,6 +1,6 @@
 <header>
   <h1>{{ .title }}</h1>
-  <span>{{ i18n "archiveCounter" (len .pages) }}</span>
+  <span>{{ i18n "archiveCounter" .total }}</span>
 </header>
 {{ range .pages.GroupByPublishDate "2006" }}
   {{- if ne .Key "0001" }}
