@@ -1,3 +1,9 @@
+:root {
+  --chroma-hl-background: #e1dbd5;
+}
+:root.dark-mode {
+  --chroma-hl-background: #39374a;
+}
 /* Background */ .bg { color: #575279; background-color: #faf4ed; }
 /* PreWrapper */ .chroma { color: #575279; }
 /* Other */ .chroma .x {  }
@@ -6,7 +12,7 @@
 /* LineLink */ .chroma .lnlinks { outline: none; text-decoration: none; color: inherit }
 /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
 /* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; }
-/* LineHighlight */ .chroma .hl { background-color: #e1dbd5 }
+/* LineHighlight */ .chroma .hl { background-color: var(--chroma-hl-background); }
 /* LineNumbersTable */ .chroma .lnt { white-space: pre; -webkit-user-select: none; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
 /* LineNumbers */ .chroma .ln { white-space: pre; -webkit-user-select: none; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
 /* Line */ .chroma .line { display: flex; }
