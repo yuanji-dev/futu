@@ -1,0 +1,57 @@
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 0.5em;
+  }
+
+  &__icon {
+    display: inline-block;
+    fill: #fff;
+    stroke: none;
+
+    svg {
+      width: 1em;
+      height: 1em;
+      margin: 0;
+      vertical-align: middle;
+    }
+  }
+
+  &--twitter {
+    background-color: #000;
+  }
+
+  &--telegram {
+    background-color: #26a5e4;
+  }
+
+  &--douban {
+    background-color: #2d963d;
+  }
+
+  &--reddit {
+    background-color: #ff4500;
+  }
+
+  &--facebook {
+    background-color: #0866ff;
+  }
+
+  &--pocket {
+    background-color: #ef3f56;
+  }
+
+  &--email {
+    background-color: #777;
+  }
+}

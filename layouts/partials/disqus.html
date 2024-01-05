@@ -1,7 +1,8 @@
-{{ if hugo.IsProduction }}
+{{ $currentOutputFormat := (partial "current_output_format.html" .) }}
+{{ if and hugo.IsProduction (ne $currentOutputFormat.Name "amp") }}
   {{ with .Site.DisqusShortname }}
     {{ $disqusLoader := resources.Get "js/disqusloader.js" | minify }}
-    <div class="disqus"></div>
+    <aside class="disqus"></aside>
     <script src="{{ $disqusLoader.RelPermalink }}"></script>
     <script>
       disqusLoader(".disqus", {
