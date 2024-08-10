@@ -4,7 +4,7 @@ Yet another minimal hugo theme, built-in styles are modified upon [water.css](ht
 
 ## Features
 
-- [Minimal](https://gtmetrix.com/reports/blog.gimo.me/32YxhVG6/)
+- Minimal
 - Multilingual
 - [AMP](https://amp.dev/)
 - …
@@ -21,11 +21,7 @@ To overwrite default favicons, you can generate your owns on [favicon.io](https:
 
 This theme is used by:
 
-- [Yuanji's Blog](https://blog.gimo.me/)
-
-## Feedback
-
-If you have any feedback, please reach out to me at self@gimo.me
+- [Yuanji's Blog](https://blog.yuanji.dev/)
 
 ## License
 
