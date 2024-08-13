@@ -1,6 +1,6 @@
 {{ $currentOutputFormat := (partial "current_output_format.html" .) }}
 {{ if and hugo.IsProduction (ne $currentOutputFormat.Name "amp") }}
-  {{ with .Site.DisqusShortname }}
+  {{ with .Site.Config.Services.Disqus.Shortname }}
     {{ $disqusLoader := resources.Get "js/disqusloader.js" | minify }}
     <aside class="disqus"></aside>
     <script src="{{ $disqusLoader.RelPermalink }}"></script>
