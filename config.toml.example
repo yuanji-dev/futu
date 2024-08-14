@@ -35,7 +35,7 @@ paginate = 10
   enableEmojiZoomJS = true
 
 [params.git]
-  repo = "https://github.com/masakichi/futu"
+  repo = "https://github.com/yuanji-dev/futu"
   branch = "main"
 
 [params.author]
