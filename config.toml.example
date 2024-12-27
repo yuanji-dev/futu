@@ -1,5 +1,5 @@
 baseURL = "example.com"
-defaultContentLanguage = "zh-cn"
+defaultContentLanguage = "zh-Hans"
 defaultContentLanguageInSubdir = false
 title = "Someone's Blog"
 theme = "futu"
@@ -79,28 +79,28 @@ paginate = 10
   tabWidth = 4
 
 [languages]
-[languages.zh-CN]
+[languages.zh-Hans]
   title = "一个人的博客"
-  languageCode = 'zh-CN'
+  languageCode = 'zh-Hans'
   languageName = '简体中文'
 # https://gohugo.io/content-management/menus/
-[languages.zh-CN.menu]
-[[languages.zh-CN.menu.main]]
+[languages.zh-Hans.menu]
+[[languages.zh-Hans.menu.main]]
   name = "首页"
   weight = 10
   identifier = "home"
   url = "/"
-[[languages.zh-CN.menu.main]]
+[[languages.zh-Hans.menu.main]]
   name = "归档"
   weight = 20
   identifier = "archives"
   url = "/archives/"
-[[languages.zh-CN.menu.main]]
+[[languages.zh-Hans.menu.main]]
   name = "标签"
   weight = 30
   identifier = "tags"
   url = "/tags/"
-[[languages.zh-CN.menu.main]]
+[[languages.zh-Hans.menu.main]]
   name = "关于"
   weight = 40
   identifier = "about"
