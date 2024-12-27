@@ -7,7 +7,6 @@ enableRobotsTXT = true
 enableEmoji = true
 enableGitInfo = true
 hasCJKLanguage = true
-paginate = 10
 #disqusShortname = ""
 #googleAnalytics = ""
 
