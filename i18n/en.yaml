@@ -50,3 +50,11 @@ verified:
   other: "This blog is verified"
 shareThisPost:
   other: "Share this post"
+warning:
+  other: "Warning"
+note:
+  other: "Note"
+info:
+  other: "Info"
+tip:
+  other: "Tip"

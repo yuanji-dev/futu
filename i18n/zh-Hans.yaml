@@ -50,3 +50,11 @@ verified:
   other: "这个博客已通过认证"
 shareThisPost:
   other: "分享本文"
+warning:
+  other: "警告"
+note:
+  other: "注释"
+info:
+  other: "信息"
+tip:
+  other: "提示"

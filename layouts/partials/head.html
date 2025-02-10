@@ -29,7 +29,7 @@
 {{ end }}
 {{ $styles := slice }}
 {{ $styles = $styles | append (resources.Get "scss/main.scss" | toCSS) (resources.Get "scss/custom.scss" | toCSS) }}
-{{ $styles = $styles | append (resources.Get "css/syntax.css") (resources.Get "css/custom.css") }}
+{{ $styles = $styles | append (resources.Get "css/syntax.css") (resources.Get "css/notice.css") (resources.Get "css/custom.css") }}
 {{ $styles = $styles | resources.Concat "styles.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 <style>

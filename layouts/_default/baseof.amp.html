@@ -23,7 +23,7 @@
     <style amp-custom>
     {{ $inlineStyles := slice }}
     {{ $inlineStyles = $inlineStyles | append (resources.Get "scss/main.scss" | toCSS) (resources.Get "scss/custom.scss" | toCSS) }}
-    {{ $inlineStyles = $inlineStyles | append (resources.Get "css/syntax.css") (resources.Get "css/custom.css")}}
+    {{ $inlineStyles = $inlineStyles | append (resources.Get "css/syntax.css") (resources.Get "css/notice.css") (resources.Get "css/custom.css")}}
     {{ $inlineStyles = $inlineStyles | resources.Concat "inline.css" | minify }}
     {{ replace $inlineStyles.Content "@charset \"UTF-8\";" "" | safeCSS }}
     </style>
