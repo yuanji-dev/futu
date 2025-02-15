@@ -8,6 +8,7 @@
 {{ if .IsBlock }}
   <figure>
     <img
+      class="post-image"
       src="{{ $image.RelPermalink }}"
       alt="{{ .Text }}"
       width="{{ $image.Width }}"
@@ -19,6 +20,7 @@
   </figure>
 {{ else }}
   <img
+    class="post-image"
     src="{{ $image.RelPermalink }}"
     alt="{{ .Text }}"
     width="{{ $image.Width }}"
